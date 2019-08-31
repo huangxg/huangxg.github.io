@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="books.js"></script>
+  <script src="../util.js"></script>
+
+  <title>Books</title>
+</head>
+
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">主页</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">读书</a></li>
+        <li class="nav-item"><a class="nav-link" href="../go/go.html">围棋</a></li>
+        <li class="nav-item"><a class="nav-link" href="../tech/tech.html">电脑</a></li>
+        <li class="nav-item"><a class="nav-link" href="../life/life.html">生活</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container">
+    <h1 class="title">包太雷书架</h1>
+    
+    <blockquote>
+      <p>朝闻道，夕死可矣。</p>
+      <footer>论语·里仁</footer>
+    </blockquote>
+    
+    <p class="mb-5">很久以前就想做这么个单子，记录读过的书和一点心得。一直懒到最近终于忍无可忍，然后发现只能找到近十来年的，聊胜于无。之前在新浪博客有几篇读书笔记，新浪经常抽风，也就没心情写更多。</p>
+
+    <table id="books-table" class="compact display" width="100%">
+      <thead>
+        <th>分类</th>
+        <th>作者</th>
+        <th>书名</th>
+        <th>出版社</th>
+        <th>年份</th>
+        <th>版本</th>
+        <th>书号</th>
+        <th>页数</th>
+        <th>评分</th>
+        <th>开始</th>
+        <th>阅毕</th>
+        <th>链接</th>
+      </thead>
+      <tfoot>
+        <th>分类</th>
+        <th>作者</th>
+        <th>书名</th>
+        <th>出版社</th>
+        <th>年份</th>
+        <th>版本</th>
+        <th>书号</th>
+        <th>页数</th>
+        <th>评分</th>
+        <th>开始</th>
+        <th>阅毕</th>
+        <th>链接</th>
+      </tfoot>
+    </table>
+  </div>
+
+  <script>
+    $(function() {
+      var catCol = 0,
+          titleCol = 2,
+          yearCol = 4,
+          editionCol = 5,
+          isbnCol = 6,
+          pagesCol = 7,
+          ratingCol = 8,
+          startCol = 9,
+          endCol = 10,
+          notesCol = 11;
+
+      var table = $('#books-table').DataTable({
+        columnDefs: [
+          {
+            targets: [isbnCol, pagesCol, startCol, notesCol],
+            visible: false,
+          }, {
+            targets: [endCol],
+            className: "dt-nowrap"
+          }, {
+            targets: [yearCol, editionCol, ratingCol, endCol],
+            className: "dt-body-center"
+          }, {
+            targets: [titleCol],
+            render: function(data, type, row) {
+              return books.getReviewLinks(data, row);
+            }
+          }
+        ],
+        data: books.list,
+        drawCallback: function() {
+          var api = this.api(),
+              rows = api.rows({page: 'current'});
+
+          //books.group(api, rows);
+          books.setTitles(api, rows);
+        },
+        initComplete : function() {
+          books.addColSelect(this.api(), catCol);
+        },
+        language: {
+          url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json"
+        },
+        order: [[0, "asc"], [titleCol, "asc"]],
+        pageLength: 10,
+        scrollX: true,
+      });
+      //table.columns.adjust();
+
+      $('body').tooltip({
+        html: true,
+        selector: '#books-table tr[title]'
+      });
+    });
+  </script>
+
+</body>
+</html>
