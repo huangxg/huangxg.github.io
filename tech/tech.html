@@ -8,21 +8,31 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+
+  <script src="../nav.js"></script>
 
   <title>Tech</title>
 </head>
 
 <body>
-  <header class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="../index.html">主页</a></li>
-        <li class="nav-item"><a class="nav-link" href="../books/books.html">读书</a></li>
-        <li class="nav-item"><a class="nav-link" href="../go/go.html">围棋</a></li>
-        <li class="nav-item"><a class="nav-link active" href="#">电脑</a></li>
-        <li class="nav-item"><a class="nav-link" href="../life/life.html">生活</a></li>
-      </ul>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="m-5 p-5 title">
+      <h1>电脑技术</h1>
+      <div class="text-muted">Tech coming soon</div>
     </div>
-  </header>
+
+  </div>
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('电脑', 1));
+  </script>
+
 </body>
 </html>

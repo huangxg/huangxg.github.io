@@ -17,6 +17,8 @@
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="nav.js"></script>
   <script src="books/books.js"></script>
   <script src="util.js"></script>
 
@@ -24,35 +26,19 @@
 </head>
 
 <body>
-  <header class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="#">包</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link active" href="#">主页</a></li>
-        <li class="nav-item"><a class="nav-link" href="books/books.html">读书</a></li>
-        <li class="nav-item"><a class="nav-link" href="go/go.html">围棋</a></li>
-        <li class="nav-item"><a class="nav-link" href="tech/tech.html">电脑</a></li>
-        <li class="nav-item"><a class="nav-link" href="life/life.html">生活</a></li>
-      </ul>
-    </div>
-  </header>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
   <div class="container">
 
-    <div class="my-3 p-3 title">
-      <h1 class="lh-100">包太雷</h1>
+    <div class="m-5 p-5 title">
+      <h1>包太雷</h1>
       <div class="text-muted">Alpha Space</div>
     </div>
 
     <div id="book-list" class="my-3 p-3 bg-white border rounded shadow-sm">
       <div class="media py-3 border-bottom border-gray">
-        <span class="col-icon text-white">书</span>
-        <h4 class="col-header">书山有路</h4>
+        <span class="col-icon">书</span>
+        <h5 class="col-header">山有路</h5>
       </div>
 
       <list-item v-for="item in items" v-bind:item="item" v-bind:key="item.title"></list-item>
@@ -66,6 +52,8 @@
 
   <script>
     $(function() {
+      $('header.navbar').append(bao.nav.getNavbar('主页', 0));
+
       Vue.component('list-item', {
         props: ['item'],
         template: '<div class="media justify-content-between py-3 border-bottom border-gray">' +
@@ -78,14 +66,14 @@
         el: '#book-list',
         data: function() {
           var items = [],
-              list = util.sortByCol(books.listWithReviews(), books.colMap.get('阅毕'), true);
+              list = bao.util.sortByCol(bao.books.listWithReviews(), bao.books.colMap.get('阅毕'), true);
 
           list = list.slice(0, Math.min(3, list.length));
           list.forEach(e => {
             var book = {};
-            book.title = e[books.colMap.get('书名')],
-            book.date = e[books.colMap.get('阅毕')],
-            book.link = `books/${e[books.colMap.get('链接')]}.html`;
+            book.title = e[bao.books.colMap.get('书名')],
+            book.date = e[bao.books.colMap.get('阅毕')],
+            book.link = `books/${e[bao.books.colMap.get('链接')]}.html`;
             items.push(book);
           });
 

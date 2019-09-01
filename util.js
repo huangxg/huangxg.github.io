@@ -1,12 +1,13 @@
-var util = (function() {
+var bao = bao || {};
 
+bao.util = (() => {
   /**
    * @param {Array.Array} list array of array
    * @param {number} i index of column
-   * @return {Array.Array} sorted array 
+   * @return {Array.Array} sorted array
    */
   function sortByCol(list, i, reverse) {
-    list.sort(function(a, b) {
+    list.sort((a, b) => {
       if (a[i] < b[i]) {
         return -1;
       } else if (a[i] > b[i]) {

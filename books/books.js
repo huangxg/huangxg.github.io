@@ -1,4 +1,6 @@
-var books = (function() {
+var bao = bao || {};
+
+bao.books = (() => {
   var categories = ['文学', '杂类', '商业', '科技'],
       publishers = {
         "addison" : "Addison-Wesley",
@@ -14,10 +16,9 @@ var books = (function() {
       colNames = ['分类', '作者', '书名', '出版社', '年份', '版本', '书号', '页数', '评分', '开始', '阅毕', '链接'],
       colMap = new Map();
 
-  colNames.forEach(function(e, i) { colMap.set(e, i) });
+  colNames.forEach((e, i) => { colMap.set(e, i) });
   
   var list = [
-    // author, title, publisher, year, edition, ISBN, pages, rating, start, end
     // Literature
     ["文学", "Charles Dickens", "Bleak House", publishers.barnes, 2005, 1, 
       "978-1593083113", 912, 8, "2016-06-15", "2017-11-19", "dickens/bleak_house/bh"],
@@ -99,13 +100,13 @@ var books = (function() {
   ];
 
   function listWithReviews() {
-    return list.filter(function(e) { return e[11].length > 0 });
+    return list.filter(e => e[11].length > 0);
   }
 
   function group(api, rows) {
     var last = null;
 
-    api.column(0, {page:'current'}).data().each(function(g, i) {
+    api.column(0, {page:'current'}).data().each((g, i) => {
       if (last !== g) {
         $(rows.nodes()).eq(i).before(
           `<tr class="group"><td colspan="7">${g}</td></tr>`
@@ -148,7 +149,7 @@ var books = (function() {
         col.search(val ? `^${val}$` : '', true, false).draw();
       });
 
-    col.data().unique().sort().each(function(d, j) {
+    col.data().unique().sort().each((d, j) => {
       select.append(`<option value="${d}">${d}</option>`);
     });
   }

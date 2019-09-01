@@ -7,11 +7,13 @@
 .col-icon {
   width: 32px;
   height: 32px;
-  margin-right: 8px;
+  margin-right: 4px;
   line-height: 32px;
   text-align: center;
   vertical-align: middle;
+  font-size: 1.25rem;
   background-color: #007bff;
+  color: white;
   border-radius: 4px;
 }
 
