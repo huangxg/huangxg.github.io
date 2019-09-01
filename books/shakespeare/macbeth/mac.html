@@ -8,44 +8,55 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../main.css">
   <link rel="stylesheet" href="../../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../../nav.js"></script>
 
   <title>Macbeth</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Macbeth</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">Macbeth</h1>
-  <div class="author">William Shakespeare</div>
+  <div class="container">
 
-  <p>这几天在看莎士比亚的《麦克白》。Macbeth 在老婆的怂恿下杀了苏格兰国王 Duncan（今天看的电影《最后一个莫西干人》里有个英国军官恰好也叫这个名字）。</p>
+    <div class="m-3 p-3 title">
+      <h1>Macbeth</h1>
+      <div class="author">William Shakespeare</div>
+    </div>
 
-  <p>Duncan 的两个儿子和一些贵族作鸟兽散，其中有个贵族叫 Macduff 的，抛妻弃子去英格兰找太子。他老婆颇有怨言。下面是第四幕第二场的一段对话。</p>
+    <p>这几天在看莎士比亚的《麦克白》。Macbeth 在老婆的怂恿下杀了苏格兰国王 Duncan（今天看的电影《最后一个莫西干人》里有个英国军官恰好也叫这个名字）。</p>
 
-  <p>夫人：你爹死了（气话），没爹的娃可咋办呢。</p>
-  <p>儿子：切，你没老公怎么办？</p>
-  <p>夫人：这样的男人我在市场上一抓一大把，可以买二十个回来。</p>
-  <p>儿子：买那么多，还会卖几个吧？</p>
-  <p>夫人：嘿，你个油嘴滑舌的，亏你想得出。</p>
-  <p>儿子：俺爹是叛徒苏奸卖国贼（原文是一个单词 traitor）么？</p>
-  <p>夫人：是的。</p>
-  <p>儿子：什么是叛徒苏奸卖国贼？</p>
-  <p>夫人：就是说谎话背信弃义（这里国和家的利益有矛盾）的人。</p>
-  <p>儿子：所有叛徒苏奸卖国贼都会撒谎么？</p>
-  <p>夫人：每个撒谎的人都是叛徒苏奸卖国贼（这两位的逻辑有问题，没搞清充分条件和必要条件），应该统统吊死。</p>
-  <p>儿子：每个撒谎的人都应该吊死？</p>
-  <p>夫人：是的，每一个。</p>
-  <p>儿子：谁来吊死他们呢？</p>
-  <p>夫人：诚实正直的人们。</p>
-  <p>儿子：那些撒谎的人是傻瓜，他们人数这么多，足够联合起来打败诚实的人，把他吊死。</p>
-   
-  <p>包子曰：信夫，撒过谎的人的确比没撒过谎人多丫。</p>
+    <p>Duncan 的两个儿子和一些贵族作鸟兽散，其中有个贵族叫 Macduff 的，抛妻弃子去英格兰找太子。他老婆颇有怨言。下面是第四幕第二场的一段对话。</p>
+
+    <p>夫人：你爹死了（气话），没爹的娃可咋办呢。</p>
+    <p>儿子：切，你没老公怎么办？</p>
+    <p>夫人：这样的男人我在市场上一抓一大把，可以买二十个回来。</p>
+    <p>儿子：买那么多，还会卖几个吧？</p>
+    <p>夫人：嘿，你个油嘴滑舌的，亏你想得出。</p>
+    <p>儿子：俺爹是叛徒苏奸卖国贼（原文是一个单词 traitor）么？</p>
+    <p>夫人：是的。</p>
+    <p>儿子：什么是叛徒苏奸卖国贼？</p>
+    <p>夫人：就是说谎话背信弃义（这里国和家的利益有矛盾）的人。</p>
+    <p>儿子：所有叛徒苏奸卖国贼都会撒谎么？</p>
+    <p>夫人：每个撒谎的人都是叛徒苏奸卖国贼（这两位的逻辑有问题，没搞清充分条件和必要条件），应该统统吊死。</p>
+    <p>儿子：每个撒谎的人都应该吊死？</p>
+    <p>夫人：是的，每一个。</p>
+    <p>儿子：谁来吊死他们呢？</p>
+    <p>夫人：诚实正直的人们。</p>
+    <p>儿子：那些撒谎的人是傻瓜，他们人数这么多，足够联合起来打败诚实的人，把他吊死。</p>
+    
+    <p>包子曰：信夫，撒过谎的人的确比没撒过谎人多丫。</p>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 3));
+  </script>
 
 </body>
 </html>

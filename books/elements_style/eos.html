@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>The Elements of Style</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">The Elements of Style</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">The Elements of Style</h1>
-  <div class="author">William Strunk Jr., E.B. White</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>The Elements of Style</h1>
+    <div class="author">William Strunk Jr., E.B. White</div>
+  </div>
 
   <figure class="text-center">
     <img class="figure-img img-fluid rounded" src="eos.jpg" alt="Elements of Style">
@@ -55,6 +60,12 @@
   </ul>
 
   <p>柯尼汉的另一本书，估计一多半码工都读过，<em>The C Programming Language</em>.</p>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
 
 </body>
 </html>

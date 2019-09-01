@@ -8,21 +8,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>Sapiens: A Brief History of Humankind</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Sapiens: A Brief History of Humankind</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">Sapiens: A Brief History of Humankind</h1>
-  <div class="author">Yuval Noah Harari (1976--)</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>Sapiens</h1>
+    <div class="text-muted">A Brief History of Humankind</div>
+    <div class="author">Yuval Noah Harari (1976--)</div>
+  </div>
 
   <figure class="text-center">
     <img class="figure-img img-fluid rounded" src="Sapiens_A_Brief_History_of_Humankind.jpg" alt="Sapiens">
@@ -160,6 +166,12 @@
       <a id="sapiens" href="https://en.wikipedia.org/wiki/Sapiens:_A_Brief_History_of_Humankind">维基百科 Sapiens: A Brief History of Humankind</a>
     </li>
   </ol>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
   
 </body>
 </html>

@@ -20,6 +20,7 @@
 
   <script src="nav.js"></script>
   <script src="books/books.js"></script>
+  <script src="tech/tech.js"></script>
   <script src="util.js"></script>
 
   <title>Alpha Space</title>
@@ -35,26 +36,35 @@
       <div class="text-muted">Alpha Space</div>
     </div>
 
-    <div id="book-list" class="my-3 p-3 bg-white border rounded shadow-sm">
+    <div id="book-news" class="my-3 p-3 bg-white border rounded shadow-sm">
       <div class="media py-3 border-bottom border-gray">
-        <span class="col-icon">书</span>
-        <h5 class="col-header">山有路</h5>
+        <span class="section-icon">书</span>
+        <h5 class="section-header">山有路</h5>
       </div>
 
-      <list-item v-for="item in items" v-bind:item="item" v-bind:key="item.title"></list-item>
+      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
 
       <small class="d-block text-right mt-3">
         <a href="books/books.html">更多</a>
       </small>
     </div>
 
+    <div id="tech-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+      <div class="media py-3 border-bottom border-gray">
+        <span class="section-icon">电</span>
+        <h5 class="section-header">脑技术</h5>
+      </div>
+
+      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+    </div>
+
   </div>
 
   <script>
-    $(function() {
+    $(() => {
       $('header.navbar').append(bao.nav.getNavbar('主页', 0));
 
-      Vue.component('list-item', {
+      Vue.component('news-item', {
         props: ['item'],
         template: '<div class="media justify-content-between py-3 border-bottom border-gray">' +
                   '  <span class="text-gray-dark"><a :href="item.link">{{ item.title }}</a></span>' +
@@ -62,10 +72,10 @@
                   '</div>'
       });
 
-      var bookList = new Vue({
-        el: '#book-list',
-        data: function() {
-          var items = [],
+      var bookNews = new Vue({
+        el: '#book-news',
+        data: () => {
+          var news = [],
               list = bao.util.sortByCol(bao.books.listWithReviews(), bao.books.colMap.get('阅毕'), true);
 
           list = list.slice(0, Math.min(3, list.length));
@@ -74,12 +84,18 @@
             book.title = e[bao.books.colMap.get('书名')],
             book.date = e[bao.books.colMap.get('阅毕')],
             book.link = `books/${e[bao.books.colMap.get('链接')]}.html`;
-            items.push(book);
+            news.push(book);
           });
 
-          return {items: items};
+          return { news: news };
         }
       });
+
+      var techNews = new Vue({
+        el: '#tech-news',
+        data: { news: bao.tech.news }
+      });
+
     });
   </script>
 </body>

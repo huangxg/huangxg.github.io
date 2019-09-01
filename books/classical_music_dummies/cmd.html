@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>Classical Music for Dummies</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Classical Music for Dummies</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">Classical Music for Dummies</h1>
-  <div class="author">David, Scott Speck</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1 >Classical Music for Dummies</h1>
+    <div class="author">David, Scott Speck</div>
+  </div>
 
   <p>某日闲来无事，乐盲包老师在图书馆借了这本书，它系统地介绍了古典音乐各个时期的主要音乐家及其作品。书中颇多野史，十分有趣。它在亚马逊音乐欣赏类图书排名第23。</p>
 
@@ -451,6 +456,12 @@
       <a id="tchaikovsky" href="https://en.wikipedia.org/wiki/Pyotr_Ilyich_Tchaikovsky">维基百科 Tchaikovsky</a>
     </li>
   </ol>
-  
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
+
 </body>
 </html>

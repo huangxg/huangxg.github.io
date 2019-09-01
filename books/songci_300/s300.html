@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>宋词三百首</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">宋词三百首</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">宋词三百首</h1>
-  <div class="author">朱孝臧编选 刘乃昌评注</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>宋词三百首</h1>
+    <div class="author">朱孝臧编选 刘乃昌评注</div>
+  </div>
 
   <figure class="text-center">
     <img class="figure-img img-fluid rounded" src="s27800589.jpg" alt="宋词三百首">
@@ -142,6 +147,12 @@
       <a id="s300-2014" href="https://book.douban.com/subject/26258160/">豆瓣 宋词三百首</a>
     </li>
   </ol>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
 
 </body>
 </html>

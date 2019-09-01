@@ -22,8 +22,8 @@ bao.nav = (() => {
 
     Object.keys(sections).forEach(k => {
       var active = section === k ? ' active' : '',
-          prefix = '../'.repeat(level),
-          link = section === k ? `${sections[k]}.html` : `${prefix}${sections[k]}.html`;
+          prefix = section !== k || level > 0 ? '../'.repeat(level) : '',
+          link = `${prefix}${sections[k]}.html`;
 
       bar += `    <li class="nav-item"><a class="nav-link${active}" href="${link}">${k}</a></li>\n`;
     });

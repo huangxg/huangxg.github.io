@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../main.css">
   <link rel="stylesheet" href="../../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../../nav.js"></script>
 
   <title>A Tale of Two Cities</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">A Tale of Two Cities</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">A Tale of Two Cities</h1>
-  <div class="author">Charles Dickens</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>A Tale of Two Cities</h1>
+    <div class="author">Charles Dickens</div>
+  </div>
 
   <figure class="text-center">
     <img class="figure-img img-fluid rounded" src="../328px-Dickens_Gurney_head.jpg" alt="Charles Dickens">
@@ -110,6 +115,12 @@
       <a id="dickens" href="https://en.wikipedia.org/wiki/Charles_Dickens">维基百科 Dickens</a>
     </li>
   </ol>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 3));
+  </script>
 
 </body>
 </html>

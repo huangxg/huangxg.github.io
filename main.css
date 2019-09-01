@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.col-icon {
+.section-icon {
   width: 32px;
   height: 32px;
   margin-right: 4px;
@@ -17,7 +17,7 @@
   border-radius: 4px;
 }
 
-.col-header {
+.section-header {
   line-height: 32px;
   margin-bottom: 0;
 }

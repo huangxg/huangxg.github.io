@@ -8,21 +8,26 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
   crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>A Random Walk Down Wall Street</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">A Random Walk Down Wall Street</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">A Random Walk Down Wall Street</h1>
-  <div class="author">波顿·麦基 (Burton G. Malkiel, 1932--?)</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>A Random Walk Down Wall Street</h1>
+    <div class="author">波顿·麦基 (Burton G. Malkiel, 1932--?)</div>
+  </div>
 
   <p>一般而言投资者分三大流派：</p>
  
@@ -97,6 +102,12 @@
       <a id="random-walk-2015" href="https://www.goodreads.com/book/show/22253749-a-random-walk-down-wall-street">Goodreads Random Walk 2015</a>
     </li>
   </ol>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
 
 </body>
 </html>

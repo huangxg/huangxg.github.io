@@ -8,21 +8,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="../../nav.js"></script>
 
   <title>Against the Gods: The Remarkable Story of Risk</title>
 </head>
 
-<body class="container">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="../books.html">书目</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Against the Gods</li>
-    </ol>
-  </nav>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
-  <h1 class="title">Against the Gods: The Remarkable Story of Risk</h1>
-  <div class="author">彼得·伯恩斯坦 (Peter L. Bernstein, 1919--2009)</div>
+  <div class="container">
+
+  <div class="m-3 p-3 title">
+    <h1>Against the Gods</h1>
+    <div class="text-muted">The Remarkable Story of Risk</div>
+    <div class="author">彼得·伯恩斯坦 (Peter L. Bernstein, 1919--2009)</div>
+  </div>
 
   <p>彼得·伯恩斯坦 (Peter L. Bernstein, 1919--2009) 的 <em>Against The Gods: The Remarkable Story of Risk</em> (John Wiley & Sons, 1996) 是一本讲风险管理的书。它有三种中译本：商周版 (1998) 名为《與天為敵--人類戰勝風險的傳奇故事》，清华版 (1999) 和机械工业版(2007) 都名为《与天为敌-风险探索传奇》。</p>
 
@@ -351,6 +357,12 @@
       <a id="bayes" href="https://en.wikipedia.org/wiki/Thomas_Bayes">维基百科 贝叶斯</a>
     </li>
   </ol>
+
+  </div> <!-- container -->
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+  </script>
 
 </body>
 </html>
