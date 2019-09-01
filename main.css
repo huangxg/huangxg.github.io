@@ -1,3 +1,24 @@
+/* structures */
+h2 {
+  padding: 20px 0;
+}
+
+h3 {
+  padding: 16px 0;
+}
+
+p {
+  text-indent: 2em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .title {
   margin: 24px auto;
   padding: 16px;
@@ -7,12 +28,11 @@
 .section-icon {
   width: 32px;
   height: 32px;
-  margin-right: 4px;
+  margin: 0 4px;
   line-height: 32px;
   text-align: center;
   vertical-align: middle;
   font-size: 1.25rem;
-  background-color: #007bff;
   color: white;
   border-radius: 4px;
 }
@@ -20,4 +40,12 @@
 .section-header {
   line-height: 32px;
   margin-bottom: 0;
+}
+
+.bg-black {
+  background-color: #333;
+}
+
+.bg-blue {
+  background-color: cornflowerblue
 }

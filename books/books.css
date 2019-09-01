@@ -8,26 +8,6 @@ h2.part::before {
   content: "第" counter(part) "部分 ";
 }
 
-h2 {
-  padding: 20px 0;
-}
-
-h3 {
-  padding: 16px 0;
-}
-
-p {
-  text-indent: 2em;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 a.footnote:before {
   counter-increment: footnote;
   content: counter(footnote);

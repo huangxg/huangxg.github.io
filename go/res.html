@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+
+  <script src="../nav.js"></script>
+
+  <title>Go Resources</title>
+</head>
+
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="m-3 p-3 title">
+      <h1>围棋资源</h1>
+    </div>
+
+    <h2>参考书</h2>
+    <p>成都时代出版社 围棋xx小辞典系列，死活、定式、布局、手筋、攻防、官子。</p>
+    
+    <h2>下棋网站</h2>
+    <ul>
+      <li><a href="https://gokgs.com">KGS（美国）</a></li>
+      <li><a href="https://pandanet-igs.com">IGS（日本）</a></li>
+      <li><a href="http://www.eweiqi.com">弈城（中国）</a></li>
+    </ul>
+    
+    <h2>视频</h2>
+    <ul>
+      <li>
+        <a href="https://www.youtube.com/playlist?list=PLku534PwIYW2cM0jT54HMPb5pyXR-uEo2">围棋入门 30课 吴文婷5段</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/playlist?list=PLku534PwIYW03WdEaefNmwoS7avKfM1oL">围棋初级 22课 吴文婷5段</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/playlist?list=PLku534PwIYW3TXz2OJHeP6mFjdlCJAxde">围棋中级 41课 刘崴5段</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/playlist?list=PLku534PwIYW2xQSBNDDjLNVi87pgCXU2C">2-3段 35课 朱仁坤二段</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/playlist?list=PLku534PwIYW0VtXbrS6EcaLAlPaHfjYO5">死活基础 37课 方天丰八段</a>
+      </li>
+    </ul>
+    
+  </div>
+
+  <script>
+    $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+  </script>
+</body>
+</html>

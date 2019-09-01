@@ -13,8 +13,10 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
     crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="go.js"></script>
 
   <title>Go</title>
 </head>
@@ -25,13 +27,31 @@
   <div class="container">
     <div class="m-5 p-5 title">
       <h1>围棋</h1>
-      <div class="text-muted">Alpha Go coming soon</div>
+      <div class="text-muted">更新中</div>
+    </div>
+
+    <div id="go-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
 
   </div>
 
   <script>
-    $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+
+      bao.util.initVue();
+      var goNews = new Vue({
+        el: '#go-news',
+        data: () => {
+          var news = bao.go.news.slice();
+          news.forEach(e => {
+            e.link = `../${e.link}`;
+          });
+          return { news: news };
+        }
+      });
+    });
   </script>
 </body>
 </html>

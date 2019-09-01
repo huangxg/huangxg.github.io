@@ -24,7 +24,18 @@ bao.util = (() => {
     return list;
   }
 
+  function initVue() {
+    Vue.component('news-item', {
+      props: ['item'],
+      template: '<div class="media justify-content-between py-3 border-bottom border-gray">' +
+                '  <span class="text-gray-dark"><a :href="item.link">{{ item.title }}</a></span>' +
+                '  <small>{{ item.date }}</small>' +
+                '</div>'
+    });
+  }
+
   return {
+    initVue   : initVue,
     sortByCol : sortByCol,
   };
 

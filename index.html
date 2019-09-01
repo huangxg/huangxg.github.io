@@ -19,9 +19,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <script src="nav.js"></script>
+  <script src="util.js"></script>
   <script src="books/books.js"></script>
   <script src="tech/tech.js"></script>
-  <script src="util.js"></script>
+  <script src="go/go.js"></script>
 
   <title>Alpha Space</title>
 </head>
@@ -38,7 +39,7 @@
 
     <div id="book-news" class="my-3 p-3 bg-white border rounded shadow-sm">
       <div class="media py-3 border-bottom border-gray">
-        <span class="section-icon">书</span>
+        <span class="section-icon bg-success">书</span>
         <h5 class="section-header">山有路</h5>
       </div>
 
@@ -49,10 +50,21 @@
       </small>
     </div>
 
+    <div id="go-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+      <div class="media py-3 border-bottom border-gray">
+        <h5 class="section-header">围</h5>
+        <span class="section-icon bg-black">棋</span>
+        <h5 class="section-header">天地</h5>
+      </div>
+  
+      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+    </div>
+  
     <div id="tech-news" class="my-3 p-3 bg-white border rounded shadow-sm">
       <div class="media py-3 border-bottom border-gray">
-        <span class="section-icon">电</span>
-        <h5 class="section-header">脑技术</h5>
+        <h5 class="section-header">电脑</h5>
+        <span class="section-icon bg-primary">技</span>
+        <h5 class="section-header">术</h5>
       </div>
 
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
@@ -64,13 +76,7 @@
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('主页', 0));
 
-      Vue.component('news-item', {
-        props: ['item'],
-        template: '<div class="media justify-content-between py-3 border-bottom border-gray">' +
-                  '  <span class="text-gray-dark"><a :href="item.link">{{ item.title }}</a></span>' +
-                  '  <small>{{ item.date }}</small>' +
-                  '</div>'
-      });
+      bao.util.initVue();
 
       var bookNews = new Vue({
         el: '#book-news',
@@ -89,6 +95,11 @@
 
           return { news: news };
         }
+      });
+
+      var goNews = new Vue({
+        el: '#go-news',
+        data: { news: bao.go.news }
       });
 
       var techNews = new Vue({
