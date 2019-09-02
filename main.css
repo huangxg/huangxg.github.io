@@ -1,6 +1,15 @@
 /* structures */
+body {
+  counter-reset: part chapter section footnote;
+}
+
 h2 {
   padding: 20px 0;
+}
+
+h2.part::before {
+  counter-increment: part;
+  content: "第" counter(part) "部分 ";
 }
 
 h3 {
@@ -19,17 +28,70 @@ a:hover {
   text-decoration: underline;
 }
 
+a.footnote:before {
+  counter-increment: footnote;
+  content: counter(footnote);
+}
+
+sup {
+  padding-left: 4px;
+}
+
+q {
+  font-style: italic;
+}
+
+blockquote {
+  margin-bottom: 48px;
+}
+
+blockquote p {
+  padding: 16px;
+  background: #eee;
+  border-radius: 4px;
+}
+
+blockquote footer {
+  padding-right: 48px;
+  text-align: right;
+}
+
+blockquote footer::before {
+  content: "-- "
+}
+
 .title {
   margin: 24px auto;
   padding: 16px;
   text-align: center;
 }
 
+.author {
+  padding: 24px;
+  color: #696969;
+  text-align: center;
+  line-height: 24px;
+}
+
+/* tables */
+table.figures {
+  margin: 24px auto;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+table caption {
+  caption-side: top;
+  text-align: center;
+}
+
+th { text-align: center; }
+
 .section-icon {
   width: 32px;
   height: 32px;
-  margin: 0 4px;
-  line-height: 32px;
+  margin-right: 8px;
   text-align: center;
   vertical-align: middle;
   font-size: 1.25rem;
@@ -38,14 +100,10 @@ a:hover {
 }
 
 .section-header {
-  line-height: 32px;
-  margin-bottom: 0;
+  /* line-height: 32px; */
+  margin-bottom: 2px;
 }
 
 .bg-black {
   background-color: #333;
-}
-
-.bg-blue {
-  background-color: cornflowerblue
 }

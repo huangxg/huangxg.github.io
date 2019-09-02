@@ -6,12 +6,12 @@ bao.nav = (() => {
     "读书" : "books/books",
     "围棋" : "go/go",
     "电脑" : "tech/tech",
-    "生活" : "life/life",
+    "民生" : "life/life",
   };
 
   function getNavbar(section, level) {
     var bar = '\n' +
-      '<span class="navbar-brand">包</span>\n' + 
+      '<span class="navbar-brand">𝜶</span>\n' + 
       '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"\n' +
       '  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n' +
       '<span class="navbar-toggler-icon"></span>\n' +
