@@ -88,7 +88,9 @@
   </div> <!-- container -->
 
   <script>
-    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+    });
   </script>
 
 </body>

@@ -14,6 +14,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
     crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
   <script src="../../nav.js"></script>
 
   <title>A Random Walk Down Wall Street</title>
@@ -106,7 +109,9 @@
   </div> <!-- container -->
 
   <script>
-    $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+    });
   </script>
 
 </body>
