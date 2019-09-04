@@ -60,6 +60,20 @@ bao.util = (() => {
     return colDefs;
   }
 
+  function getColFoot(cols) {
+    var foot = '<tfoot>\n';
+    cols.forEach((col, i) => {
+      foot += `<th>${col.title}</th>\n`
+    });
+    return foot + '</tfoot>'
+  }
+
+  function getColMap(cols) {
+    var colMap = new Map();
+    cols.forEach((col, i) => { colMap.set(col.title, i) });
+    return colMap;
+  }
+
   function initVue() {
     Vue.component('news-item', {
       props: ['item'],
@@ -71,8 +85,10 @@ bao.util = (() => {
   }
 
   return {
-    initVue    : initVue,
     getColDefs : getColDefs,
+    getColFoot : getColFoot,
+    getColMap  : getColMap,
+    initVue    : initVue,
     sortByCol  : sortByCol,
   };
 

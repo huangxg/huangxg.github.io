@@ -89,14 +89,15 @@
         el: '#book-news',
         data: () => {
           var news = [],
-              list = bao.util.sortByCol(bao.books.listWithReviews(), bao.books.colMap.get('阅毕'), true);
+              colMap = bao.util.getColMap(bao.books.cols);
+              list = bao.util.sortByCol(bao.books.reviewedBooks(), colMap.get('阅毕'), true);
 
           list = list.slice(0, Math.min(3, list.length));
           list.forEach(e => {
             var book = {};
-            book.title = e[bao.books.colMap.get('书名')],
-            book.date = e[bao.books.colMap.get('阅毕')],
-            book.link = `books/${e[bao.books.colMap.get('链接')]}.html`;
+            book.title = e[colMap.get('书名')],
+            book.date = e[colMap.get('阅毕')],
+            book.link = `books/${e[colMap.get('链接')]}.html`;
             news.push(book);
           });
 

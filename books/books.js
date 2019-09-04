@@ -13,12 +13,22 @@ bao.books = (() => {
         "wiley"   : "Wiley",
         "zhonghua": "中华书局",
       },
-      colNames = ['分类', '作者', '书名', '出版社', '年份', '版本', '书号', '页数', '评分', '开始', '阅毕', '链接'],
-      colMap = new Map();
+      cols = [
+        { title: "分类", type: "string", align: "center" },
+        { title: "作者", type: "string" },
+        { title: "书名", type: "string" },
+        { title: "出版社", type: "string" },
+        { title: "年份", type: "number", align: "center" },
+        { title: "版本", type: "number", align: "center" },
+        { title: "书号", type: "string" },
+        { title: "页数", type: "number" },
+        { title: "评分", type: "number", align: "center" },
+        { title: "开始", type: "string" },
+        { title: "阅毕", type: "string" },
+        { title: "链接", type: "string" },
+      ];
 
-  colNames.forEach((e, i) => { colMap.set(e, i) });
-  
-  var list = [
+  var data = [
     // Literature
     ["文学", "Charles Dickens", "Bleak House", publishers.barnes, 2005, 1, 
       "978-1593083113", 912, 8, "2016-06-15", "2017-11-19", "dickens/bleak_house/bh"],
@@ -99,8 +109,8 @@ bao.books = (() => {
       "978-0596006488", 536, 6, "2012-07-15", "2012-08-17", ""],
   ];
 
-  function listWithReviews() {
-    return list.filter(e => e[11].length > 0);
+  function reviewedBooks() {
+    return data.filter(e => e[11].length > 0);
   }
 
   function group(api, rows) {
@@ -125,11 +135,7 @@ bao.books = (() => {
   }
 
   function title(book) {
-    var tip = `标题：${book[2]}<br>` + 
-              `书号：${book[6]}<br>` +
-              `页数：${book[7]}`;
-
-    return tip;
+    return `标题：${book[2]}<br>书号：${book[6]}<br>页数：${book[7]}`;
   }
 
   function getReviewLinks(data, row) {
@@ -155,13 +161,12 @@ bao.books = (() => {
   }
 
   return {
-    addColSelect    : addColSelect,
-    colNames        : colNames,
-    colMap          : colMap,
-    getReviewLinks  : getReviewLinks,
-    group           : group,
-    list            : list,
-    listWithReviews : listWithReviews,
-    setTitles       : setTitles,
+    addColSelect   : addColSelect,
+    cols           : cols,
+    data           : data,
+    getReviewLinks : getReviewLinks,
+    group          : group,
+    reviewedBooks  : reviewedBooks,
+    setTitles      : setTitles,
   };
 })();

@@ -20,6 +20,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src="../nav.js"></script>
+  <script src="../util.js"></script>
   <script src="books.js"></script>
 
   <title>Books</title>
@@ -38,74 +39,47 @@
       <footer>论语·里仁</footer>
     </blockquote>
     
-    <p class="mb-5">很久以前就想做这么个单子，记录读过的书和一点心得。一直懒到最近终于忍无可忍，然后发现只能找到近十来年的，聊胜于无。之前在新浪博客有几篇读书笔记，新浪经常抽风，也就没心情写更多。</p>
+    <p>很久以前就想做这么个单子，记录读过的书和一点心得。一直懒到最近终于忍无可忍，然后发现只能找到近十来年的，聊胜于无。之前在新浪博客有几篇读书笔记，新浪经常抽风，也就没心情写更多。</p>
 
-    <table id="books-table" class="compact display" width="100%">
-      <thead>
-        <th>分类</th>
-        <th>作者</th>
-        <th>书名</th>
-        <th>出版社</th>
-        <th>年份</th>
-        <th>版本</th>
-        <th>书号</th>
-        <th>页数</th>
-        <th>评分</th>
-        <th>开始</th>
-        <th>阅毕</th>
-        <th>链接</th>
-      </thead>
-      <tfoot>
-        <th>分类</th>
-        <th>作者</th>
-        <th>书名</th>
-        <th>出版社</th>
-        <th>年份</th>
-        <th>版本</th>
-        <th>书号</th>
-        <th>页数</th>
-        <th>评分</th>
-        <th>开始</th>
-        <th>阅毕</th>
-        <th>链接</th>
-      </tfoot>
-    </table>
+    <div class="datatable-wrapper">
+      <table id="books-table" class="compact display"></table>
+    </div>
   </div>
 
   <script>
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('读书', 1));
 
+      $('#books-table').append(bao.util.getColFoot(bao.books.cols));
+
       var catCol = 0,
           titleCol = 2,
-          yearCol = 4,
-          editionCol = 5,
           isbnCol = 6,
           pagesCol = 7,
-          ratingCol = 8,
           startCol = 9,
           endCol = 10,
           notesCol = 11;
 
-      var table = $('#books-table').DataTable({
-        columnDefs: [
-          {
-            targets: [isbnCol, pagesCol, startCol, notesCol],
-            visible: false,
-          }, {
-            targets: [endCol],
-            className: "dt-nowrap"
-          }, {
-            targets: [yearCol, editionCol, ratingCol, endCol],
-            className: "dt-body-center"
-          }, {
-            targets: [titleCol],
-            render: (data, type, row) => {
-              return bao.books.getReviewLinks(data, row);
-            }
+      var colDefs = bao.util.getColDefs(bao.books.cols);
+      colDefs = colDefs.concat([
+        {
+          targets: [isbnCol, pagesCol, startCol, notesCol],
+          visible: false,
+        }, {
+          targets: [endCol],
+          className: "dt-nowrap"
+        }, {
+          targets: [titleCol],
+          render: (data, type, row) => {
+            return bao.books.getReviewLinks(data, row);
           }
-        ],
-        data: bao.books.list,
+        }
+      ]);
+
+      var table = $('#books-table').DataTable({
+        columns: bao.books.cols,
+        columnDefs: colDefs,
+        data: bao.books.data,
         drawCallback: function() {
           var api = this.api(),
               rows = api.rows({page: 'current'});
