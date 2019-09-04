@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="us_crimes_2012.js"></script>
+
+  <title>2012 US Crimes</title>
+</head>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="m-3 p-3 title">
+      <h1>美国都市区犯罪率排名</h1>
+      <div class="author">包太雷</div>
+    </div>
+
+
+    <div class="datatable-wrapper" style="width: 800px">
+      <table id="crimes-table" class="compact display"></table>
+    </div>
+    
+  </div>
+
+  <script>
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('民生', 1));
+
+      $('#crimes-table').append(bao.util.getColFoot(bao.life.us_crimes_2012.cols));
+
+      var table = $('#crimes-table').DataTable({
+        columns: bao.life.us_crimes_2012.cols,
+        columnDefs: bao.util.getColDefs(bao.life.us_crimes_2012.cols),
+        data: bao.life.us_crimes_2012.data,
+        language: {
+          url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json"
+        },
+        pageLength: 100,
+      });
+    });
+  </script>
+
+</body>
+</html>

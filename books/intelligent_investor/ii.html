@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <link rel="stylesheet" href="../../main.css">
   <link rel="stylesheet" href="../books.css">
 
@@ -17,7 +18,9 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
     crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src="../../nav.js"></script>
+  <script src="../../util.js"></script>
 
   <title>The Intelligent Investor</title>
 </head>
@@ -50,48 +53,8 @@
 
   <p>以下是他们的成绩，年份后面是年化回报率，葛老后面对比的是道琼斯指数回报，其他人对比的是标准普尔。那三位的数据来自书后附录巴老的演讲记录，巴菲特的是我找的。</p>
 
-  <table class="table table-sm table-striped">
+  <table id="grahams-returns-table" class="table table-sm table-striped" style="width: 600px; margin: 3rem auto;">
     <caption>葛拉汉门派投资业绩</caption>
-    <thead>
-      <tr>
-        <td>投资人</td>
-        <td>时间</td>
-        <td>回报率</td>
-        <td>大盘指数回报</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Graham</td>
-        <td>1934--1956</td>
-        <td>17.0%</td>
-        <td>13.2%</td>
-      </tr>
-      <tr>
-        <td>Buffett</td>
-        <td>1965--2017</td>
-        <td>20.8%</td>
-        <td>9.7%</td>
-      </tr>
-      <tr>
-        <td>Schloss</td>
-        <td>1956--1984</td>
-        <td>21.3%</td>
-        <td>8.4%</td>
-      </tr>
-      <tr>
-        <td>Knapp</td>
-        <td>1968--1983</td>
-        <td>20.0%</td>
-        <td>7.0%</td>
-      </tr>
-      <tr>
-        <td>Ruane</td>
-        <td>1970--1984</td>
-        <td>17.2%</td>
-        <td>10.0%</td>
-      </tr>
-    </tbody>
   </table>
 
   <p>此书1949年首版，我读的是1973年第四版，注解是2003年茨维格加的。茨维格也毕业于哥大，多种财经报刊（华尔街日报、时代周刊、金钱月刊等）的专栏作家，曾任福布斯杂志编辑。</p>
@@ -240,6 +203,31 @@
   <script>
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('读书', 2));
+
+      grahamReturns = {
+        cols: [
+          { title: '投资人',      type: 'string' },
+          { title: '时间',       type: 'string', align: 'center' },
+          { title: '回报率',      type: 'number', align: 'right' }, 
+          { title: '大盘指数回报', type: 'number', align: 'right' }, 
+        ],
+        data: [
+          [ 'Graham',  '1934--1956', '17.0%', '13.2%' ],
+          [ 'Buffett', '1965--2017', '20.8%', ' 9.7%' ],
+          [ 'Schloss', '1956--1984', '21.3%', ' 8.4%' ],
+          [ 'Knapp',   '1968--1983', '20.0%', ' 7.0%' ],
+          [ 'Ruane',   '1970--1984', '17.2%', '10.0%' ]
+        ]
+      };
+
+      var table = $('#grahams-returns-table').DataTable({
+        columns    : grahamReturns.cols,
+        columnDefs : bao.util.getColDefs(grahamReturns.cols),
+        data       : grahamReturns.data,
+        paging     : false,
+        searching  : false,
+      });
+
     });
   </script>
   

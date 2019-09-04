@@ -36,7 +36,7 @@ bao.util = (() => {
         rightCols.push(i);
       }
 
-      if (col.decimal) {
+      if (typeof col.decimal !== 'undefined') {
         colDefs.push({
           targets: [i],
           render: $.fn.dataTable.render.number( ',', '.', col.decimal)
