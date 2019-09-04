@@ -24,6 +24,42 @@ bao.util = (() => {
     return list;
   }
 
+  function getColDefs(cols) {
+    var colDefs = [],
+        centerCols = [],
+        rightCols = [];
+
+    cols.forEach((col, i) => {
+      if ('center' === col.align ) {
+        centerCols.push(i);
+      } else if ('right' === col.align) {
+        rightCols.push(i);
+      }
+
+      if (col.decimal) {
+        colDefs.push({
+          targets: [i],
+          render: $.fn.dataTable.render.number( ',', '.', col.decimal)
+        });
+      }
+    });
+
+    if (centerCols.length > 0) {
+      colDefs.push({
+        targets: centerCols,
+        className: "dt-body-center"
+      });
+    }
+    if (rightCols.length > 0) {
+      colDefs.push({
+        targets: rightCols,
+        className: "dt-body-right"
+      });
+    }
+
+    return colDefs;
+  }
+
   function initVue() {
     Vue.component('news-item', {
       props: ['item'],
@@ -35,8 +71,9 @@ bao.util = (() => {
   }
 
   return {
-    initVue   : initVue,
-    sortByCol : sortByCol,
+    initVue    : initVue,
+    getColDefs : getColDefs,
+    sortByCol  : sortByCol,
   };
 
 })();

@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="us_weather.js"></script>
+
+  <title>US Weather</title>
+</head>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="m-3 p-3 title">
+      <h1>美国都市区气候排名</h1>
+      <div class="author">包太雷</div>
+    </div>
+
+    <p>美国的都市区 (metropolitan statiscal area) 是多个相邻城市的集合，大致相当于中国地级市的概念，都市区里的市 (city) 或镇 (town) 则大致相当于地级市里的区。当然美国总人口比中国少很多，分布也相对均匀，都市区一般不能跟地级市比人口。</p>
+
+    <p>笔者认为对于地区性的统计，用都市区比用市镇更合理。维基百科上列有美国本土381个都市区，但是笔者查阅政府网站后发现，其中少数已被取消或合并。另有几个网上很难找到数据，所以这里只列出366个。</p>
+
+    <p>本文数据来自 weather.com 和维基百科。</p>
+
+    <p>舒适是一个主观的概念，笔者认为冬天温度在零度以上都可以接受，夏天温度在30度以下也可以接受。本文把一月平均低温低于零度的值和七月平均高温高于30度的值相加，称其为偏差；偏差较小，该地区就较舒适。气候指数表示该地区比多少百分比的其他地区温度偏差更小。比如有20多个城市的气候指数为一百分，他们的偏差都是零；零分的费尔班克斯是温度偏差最大的地区。加州有十多个城市一百分，宝地啊，可惜郑和没有到达。</p>
+
+    <div class="datatable-wrapper">
+      <table id="weather-table" class="compact display" width="100%"></table>
+    </div>
+    
+  </div>
+
+  <script>
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('民生', 1));
+
+      var table = $('#weather-table').DataTable({
+        columns: bao.life.us_weather.cols,
+        columnDefs: bao.util.getColDefs(bao.life.us_weather.cols),
+        data: bao.life.us_weather.data,
+        language: {
+          url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json"
+        },
+        pageLength: 100,
+      });
+    });
+  </script>
+
+</body>
+</html>

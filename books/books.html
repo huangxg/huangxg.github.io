@@ -100,7 +100,7 @@
             className: "dt-body-center"
           }, {
             targets: [titleCol],
-            render: function(data, type, row) {
+            render: (data, type, row) => {
               return bao.books.getReviewLinks(data, row);
             }
           }

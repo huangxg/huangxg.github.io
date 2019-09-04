@@ -16,7 +16,10 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="life.js"></script>
 
   <title>Life</title>
 </head>
@@ -27,7 +30,11 @@
   <div class="container">
     <div class="m-5 p-5 title">
       <h1>国计民生</h1>
-      <div class="text-muted">Life coming soon</div>
+      <div class="text-muted">更新中</div>
+    </div>
+
+    <div id="life-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
 
   </div>
@@ -35,6 +42,18 @@
   <script>
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('民生', 1));
+
+      bao.util.initVue();
+      var lifeNews = new Vue({
+        el: '#life-news',
+        data: () => {
+          var news = bao.life.news.slice();
+          news.forEach(e => {
+            e.link = `../${e.link}`;
+          });
+          return { news: news };
+        }
+      });
     });
   </script>
 

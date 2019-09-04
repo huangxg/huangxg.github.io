@@ -20,8 +20,9 @@
   <script src="nav.js"></script>
   <script src="util.js"></script>
   <script src="books/books.js"></script>
-  <script src="tech/tech.js"></script>
   <script src="go/go.js"></script>
+  <script src="tech/tech.js"></script>
+  <script src="life/life.js"></script>
 
   <title>Alpha Space</title>
 </head>
@@ -67,7 +68,7 @@
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
 
-    <div id="tech-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+    <div id="life-news" class="my-3 p-3 bg-white border rounded shadow-sm">
       <div class="media py-3 border-bottom border-gray">
         <span class="section-icon">🌎</span>
         <h5 class="section-header">国计民生</h5>
@@ -113,6 +114,10 @@
         data: { news: bao.tech.news }
       });
 
+      var lifeNews = new Vue({
+        el: '#life-news',
+        data: { news: bao.life.news }
+      });
     });
   </script>
 </body>

@@ -74,6 +74,10 @@ blockquote footer::before {
 }
 
 /* tables */
+.datatable-wrapper {
+  margin-top: 3rem;
+}
+
 table.figures {
   margin: 24px auto;
   text-align: center;
