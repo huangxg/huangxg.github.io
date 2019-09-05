@@ -33,7 +33,7 @@
       <div class="text-muted">更新中</div>
     </div>
 
-    <div id="life-news" class="my-3 p-3 bg-white border rounded shadow-sm">
+    <div id="life-news" class="news-box">
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
 
@@ -47,7 +47,7 @@
       var lifeNews = new Vue({
         el: '#life-news',
         data: () => {
-          var news = bao.life.news.slice();
+          var news = bao.util.sortByProp(bao.life.news, 'date', true);
           news.forEach(e => {
             e.link = `../${e.link}`;
           });

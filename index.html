@@ -37,8 +37,8 @@
       <div class="text-muted">Alpha Space</div>
     </div>
 
-    <div id="book-news" class="my-3 p-3 bg-white border rounded shadow-sm">
-      <div class="media py-3 border-bottom border-gray">
+    <div id="book-news" class="news-box">
+      <div class="news-header">
         <span class="section-icon">📖</span>
         <h5 class="section-header">书山有路</h5>
       </div>
@@ -50,8 +50,8 @@
       </small>
     </div>
 
-    <div id="go-news" class="my-3 p-3 bg-white border rounded shadow-sm">
-      <div class="media py-3 border-bottom border-gray">
+    <div id="go-news" class="news-box">
+      <div class="news-header">
         <span class="section-icon">⚪</span>
         <h5 class="section-header">围棋天地</h5>
       </div>
@@ -59,8 +59,8 @@
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
   
-    <div id="tech-news" class="my-3 p-3 bg-white border rounded shadow-sm">
-      <div class="media py-3 border-bottom border-gray">
+    <div id="tech-news" class="news-box">
+      <div class="news-header">
         <span class="section-icon">💻</span>
         <h5 class="section-header">电脑技术</h5>
       </div>
@@ -68,13 +68,17 @@
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
     </div>
 
-    <div id="life-news" class="my-3 p-3 bg-white border rounded shadow-sm">
-      <div class="media py-3 border-bottom border-gray">
+    <div id="life-news" class="news-box">
+      <div class="news-header">
         <span class="section-icon">🌎</span>
         <h5 class="section-header">国计民生</h5>
       </div>
 
       <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+
+      <small class="d-block text-right mt-3">
+        <a href="life/life.html">更多</a>
+      </small>
     </div>
 
   </div>
@@ -117,7 +121,7 @@
 
       var lifeNews = new Vue({
         el: '#life-news',
-        data: { news: bao.life.news }
+        data: { news: bao.util.sortByProp(bao.life.news, 'date', true) }
       });
     });
   </script>

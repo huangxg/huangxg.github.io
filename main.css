@@ -73,6 +73,25 @@ blockquote footer::before {
   line-height: 24px;
 }
 
+.news-box {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.news-header, .news-item {
+  padding: .5rem 0;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+}
+
+.news-item {
+  justify-content: space-between;
+}
+
 /* tables */
 .datatable-wrapper {
   margin: 3rem auto;

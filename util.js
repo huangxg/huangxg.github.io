@@ -4,24 +4,47 @@ bao.util = (() => {
   /**
    * @param {Array.Array} list array of array
    * @param {number} i index of column
+   * @param {reverse} reverse descending order
    * @return {Array.Array} sorted array
    */
-  function sortByCol(list, i, reverse) {
-    list.sort((a, b) => {
+  function sortByCol(array, i, reverse) {
+    array.sort((a, b) => {
       if (a[i] < b[i]) {
         return -1;
       } else if (a[i] > b[i]) {
         return 1;
       }
-
       return 0;
     });
 
     if (reverse) {
-      list.reverse();
+      array.reverse();
     }
 
-    return list;
+    return array;
+  }
+
+  /**
+   * 
+   * @param {Array.Object} array 
+   * @param {string} prop 
+   * @param {boolean} reverse descending order
+   */
+  function sortByProp(array, prop, reverse) {
+    array.sort((a, b) => {
+      if (a[prop] < b[prop]) {
+        return -1;
+      } else if (a[prop] > b[prop]) {
+        return 1;
+      }
+      return 0;
+    });
+
+    if (reverse) {
+      array.reverse();
+    }
+
+    return array;
   }
 
   function getColDefs(cols) {
@@ -77,8 +100,8 @@ bao.util = (() => {
   function initVue() {
     Vue.component('news-item', {
       props: ['item'],
-      template: '<div class="media justify-content-between py-3 border-bottom border-gray">' +
-                '  <span class="text-gray-dark"><a :href="item.link">{{ item.title }}</a></span>' +
+      template: '<div class="news-item">' +
+                '  <span><a :href="item.link">{{ item.title }}</a></span>' +
                 '  <small>{{ item.date }}</small>' +
                 '</div>'
     });
@@ -90,6 +113,7 @@ bao.util = (() => {
     getColMap  : getColMap,
     initVue    : initVue,
     sortByCol  : sortByCol,
+    sortByProp : sortByProp,
   };
 
 })();
