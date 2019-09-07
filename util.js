@@ -1,6 +1,10 @@
 var bao = bao || {};
 
 bao.util = (() => {
+  function clone(array) {
+    return JSON.parse(JSON.stringify(array));
+  }
+
   /**
    * @param {Array.Array} list array of array
    * @param {number} i index of column
@@ -47,7 +51,7 @@ bao.util = (() => {
     return array;
   }
 
-  function getColDefs(cols) {
+  function getColDefs(cols, addIndexCol) {
     var colDefs = [],
         centerCols = [],
         rightCols = [];
@@ -80,6 +84,14 @@ bao.util = (() => {
       });
     }
 
+    if (addIndexCol) {
+      colDefs.push({
+        "targets": 0,
+        "orderable": false,
+        "searchable": false,
+      });
+    }
+
     return colDefs;
   }
 
@@ -97,6 +109,41 @@ bao.util = (() => {
     return colMap;
   }
 
+  function datatable(tableId, tableData, options, addIndexCol) {
+    var cols = bao.util.clone(tableData.cols),
+        data = bao.util.clone(tableData.data),
+        $table = $(`#${tableId}`);
+
+    if (addIndexCol) {
+      cols.unshift({ title: '', align: 'center' });
+      data.forEach(row => { row.unshift(''); });
+    }
+
+    $table.append(bao.util.getColFoot(cols));
+
+    var tableOpts = {
+      columns    : cols,
+      columnDefs : bao.util.getColDefs(cols, addIndexCol),
+      data       : data,
+      language   : { url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json" },
+      pageLength : 100,
+    }
+    if (addIndexCol) {
+      tableOpts.order = [[ 1, 'asc' ]];
+    }
+    Object.assign(tableOpts, options);
+    var table = $table.DataTable(tableOpts);
+
+    if (addIndexCol) {
+      table.on( 'order.dt search.dt', () => {
+        table.column(0, { search: 'applied', order: 'applied' })
+          .nodes().each((cell, i) => {
+          cell.innerHTML = i + 1;
+        });
+      }).draw();
+    }
+  }
+
   function initVue() {
     Vue.component('news-item', {
       props: ['item'],
@@ -108,6 +155,8 @@ bao.util = (() => {
   }
 
   return {
+    clone      : clone,
+    datatable  : datatable,
     getColDefs : getColDefs,
     getColFoot : getColFoot,
     getColMap  : getColMap,

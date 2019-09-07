@@ -50,17 +50,7 @@
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('民生', 1));
 
-      $('#jobs-table').append(bao.util.getColFoot(bao.life.us_jobs_2013.cols));
-
-      var table = $('#jobs-table').DataTable({
-        columns: bao.life.us_jobs_2013.cols,
-        columnDefs: bao.util.getColDefs(bao.life.us_jobs_2013.cols),
-        data: bao.life.us_jobs_2013.data,
-        language: {
-          url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json"
-        },
-        pageLength: 100,
-      });
+      bao.util.datatable('jobs-table', bao.life.us_jobs_2013, {}, true);
     });
   </script>
 

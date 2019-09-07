@@ -2,14 +2,14 @@ var bao = bao || {};
 
 bao.life = bao.life || {};
 
-bao.life.us_jobs_2013 = (() => {
-  var cols = [
+bao.life.us_jobs_2013 = {
+  cols : [
     { title: '都市区', type: 'string', align: 'left'}, 
     { title: '人口', type: 'number', decimal: 0, align: 'right'}, 
     { title: '失业率', type: 'number', decimal: 1, align: 'right'}, 
     { title: '就业指数', type: 'number', decimal: 1, align: 'right'}
   ],
-      data = [
+  data : [
     ['Abilene, TX', 168729, 5.7, 88.5], 
     ['Akron, OH', 703715, 7.1, 61.4], 
     ['Albany, GA', 159379, 10.2, 10.2], 
@@ -376,10 +376,5 @@ bao.life.us_jobs_2013 = (() => {
     ['Youngstown-Warren-Boardman, OH-PA', 562739, 8.3, 33.7], 
     ['Yuba City, CA', 168854, 14.2, 0.6], 
     ['Yuma, AZ', 198522, 31.8, 0]
-  ];
-
-  return {
-    cols : cols,
-    data : data,
-  };
-})();
+  ]
+};

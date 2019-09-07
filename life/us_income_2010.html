@@ -19,16 +19,16 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src="../nav.js"></script>
   <script src="../util.js"></script>
-  <script src="us_crimes_2012.js"></script>
+  <script src="us_income_2010.js"></script>
 
-  <title>2012 US Crimes</title>
+  <title>2013 US Unemployment</title>
 </head>
 <body>
   <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
   <div class="container">
     <div class="m-3 p-3 title">
-      <h1>2012 美国都市区犯罪率排名</h1>
+      <h1>2010 美国都市区人均收入排名</h1>
       <div class="author">包太雷</div>
     </div>
 
@@ -36,14 +36,12 @@
 
     <p>笔者认为对于地区性的统计，用都市区比用市镇更合理。维基百科上列有美国本土381个都市区，但是笔者查阅政府网站后发现，其中少数已被取消或合并。另有几个网上很难找到数据，所以这里只列出366个。</p>
     
-    <p>本文数据主要来自 FBI 发布的2012美国犯罪报告，此报告中部分地区数据不完整，比如伊利诺伊和明尼苏达很多地区隐瞒了强奸的数据。对于 FBI 没有数据或数据不完整的地区，笔者查阅了 neighborhoodscout.com 或者该地区政府网站。</p>
-    
-    <p>这里的犯罪率是每十万人中针对人身安全的暴力犯罪 (凶杀、强奸、抢劫、攻击等) 次数，不包括针对财产的犯罪 (偷窃等)。</p>
-    
-    <p>安全指数是笔者自创的一个概念，其数值表示该地区比多少百分比的其他地区更安全。比如安全指数为一百分的罗根是犯罪率最低的地方，零分的孟菲斯是犯罪率最高的地方，而得分50.2的圣罗沙恰好处于中间。</p>
+    <p>本文数据中的收入部分来自商务部经济分析局发布的 2010 美国个人收入报告，该报告含366个都市区。2010年人口数据来自维基百科。</p>
+
+    <p>收入指数是笔者自创的一个概念，其数值表示该地区比多少百分比的其他地区人均收入更高。比如收入指数为一百分的桥港是人均收入最高的地区，零分的迈克阿伦是人均收入最低的地区，而得分50.1的阿马里洛恰好处于中间。</p>
 
     <div class="datatable-wrapper" style="width: 800px">
-      <table id="crimes-table" class="compact display"></table>
+      <table id="income-table" class="compact display"></table>
     </div>
     
   </div>
@@ -52,7 +50,7 @@
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('民生', 1));
 
-      bao.util.datatable('crimes-table', bao.life.us_crimes_2012, {}, true);
+      bao.util.datatable('income-table', bao.life.us_income_2010, {}, true);
     });
   </script>
 

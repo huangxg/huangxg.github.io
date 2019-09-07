@@ -50,17 +50,7 @@
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('民生', 1));
 
-      $('#weather-table').append(bao.util.getColFoot(bao.life.us_weather.cols));
-
-      var table = $('#weather-table').DataTable({
-        columns: bao.life.us_weather.cols,
-        columnDefs: bao.util.getColDefs(bao.life.us_weather.cols),
-        data: bao.life.us_weather.data,
-        language: {
-          url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json"
-        },
-        pageLength: 100,
-      });
+      bao.util.datatable('weather-table', bao.life.us_weather, {}, true);
     });
   </script>
 

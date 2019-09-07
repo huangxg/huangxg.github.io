@@ -121,7 +121,11 @@
 
       var lifeNews = new Vue({
         el: '#life-news',
-        data: { news: bao.util.sortByProp(bao.life.news, 'date', true) }
+        data: () => { 
+          var news = bao.util.sortByProp(bao.life.news, 'date', true);
+          news = news.slice(0, Math.min(3, news.length));
+          return { "news" : news };
+        }
       });
     });
   </script>

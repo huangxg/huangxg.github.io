@@ -2,15 +2,15 @@ var bao = bao || {};
 
 bao.life = bao.life || {};
 
-bao.life.us_weather = (() => {
-  var cols = [
+bao.life.us_weather = {
+  cols : [
     { title: '都市区',  type: 'string', align: 'left'}, 
     { title: '1月低温', type: 'number', decimal: 1, align: 'right'}, 
     { title: '7月高温', type: 'number', decimal: 1, align: 'right'}, 
     { title: '偏差',    type: 'number', decimal: 1, align: 'right'}, 
     { title: '气候指数', type: 'number', decimal: 1, align: 'right'}
   ],
-      data = [
+  data : [
     ['Abilene, TX', 33.0, 94.0, 8.0, 64.7],
     ['Akron, OH', 19.0, 82.0, 13.0, 40.0],
     ['Albany, GA', 35.0, 93.0, 7.0, 72.7],
@@ -377,10 +377,5 @@ bao.life.us_weather = (() => {
     ['Youngstown-Warren-Boardman, OH-PA', 19.0, 82.0, 13.0, 40.0],
     ['Yuba City, CA', 39.0, 97.0, 11.0, 49.9],
     ['Yuma, AZ', 42.0, 106.0, 20.0, 11.8]
-  ];
-
-  return {
-    cols : cols,
-    data : data,
-  };
-})();
+  ]
+};

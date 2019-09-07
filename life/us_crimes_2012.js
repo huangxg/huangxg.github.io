@@ -2,14 +2,14 @@ var bao = bao || {};
 
 bao.life = bao.life || {};
 
-bao.life.us_crimes_2012 = (() => {
-  var cols = [
+bao.life.us_crimes_2012 = {
+  cols : [
     { title: '都市区',  type: 'string', align: 'left'}, 
     { title: '人口',    type: 'number', decimal: 0, align: 'right'}, 
     { title: '犯罪率',  type: 'number', decimal: 1, align: 'right'}, 
     { title: '安全指数', type: 'number', decimal: 1, align: 'right'}
   ],
-      data = [
+  data : [
     ['Abilene, TX', 168729, 297.5, 63.9], 
     ['Akron, OH', 703715, 324.1, 57.3], 
     ['Albany, GA', 159379, 527.7, 17.0], 
@@ -376,10 +376,5 @@ bao.life.us_crimes_2012 = (() => {
     ['Youngstown-Warren-Boardman, OH-PA', 562739, 302.1, 62.2], 
     ['Yuba City, CA', 168854, 405.1, 38.1], 
     ['Yuma, AZ', 198522, 340.5, 52.7]
-  ];
-    
-  return {
-    cols : cols,
-    data : data,
-  };
-})();
+  ]
+};
