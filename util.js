@@ -109,32 +109,35 @@ bao.util = (() => {
     return colMap;
   }
 
-  function datatable(tableId, tableData, options, addIndexCol) {
+  function datatable(tableId, tableData, options, longTable) {
     var cols = bao.util.clone(tableData.cols),
         data = bao.util.clone(tableData.data),
         $table = $(`#${tableId}`);
 
-    if (addIndexCol) {
+    if (longTable) {
       cols.unshift({ title: '', align: 'center' });
       data.forEach(row => { row.unshift(''); });
+      $table.append(bao.util.getColFoot(cols));
     }
-
-    $table.append(bao.util.getColFoot(cols));
 
     var tableOpts = {
       columns    : cols,
-      columnDefs : bao.util.getColDefs(cols, addIndexCol),
+      columnDefs : bao.util.getColDefs(cols, longTable),
       data       : data,
       language   : { url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Chinese.json" },
       pageLength : 100,
     }
-    if (addIndexCol) {
+    if (longTable) {
       tableOpts.order = [[ 1, 'asc' ]];
+    } else {
+      tableOpts.paging = false;
+      tableOpts.searching = false;
     }
+
     Object.assign(tableOpts, options);
     var table = $table.DataTable(tableOpts);
 
-    if (addIndexCol) {
+    if (longTable) {
       table.on( 'order.dt search.dt', () => {
         table.column(0, { search: 'applied', order: 'applied' })
           .nodes().each((cell, i) => {
@@ -148,8 +151,26 @@ bao.util = (() => {
     Vue.component('news-item', {
       props: ['item'],
       template: '<div class="news-item">' +
-                '  <span><a :href="item.link">{{ item.title }}</a></span>' +
+                '  <span><a :href="item.url">{{ item.title }}</a></span>' +
                 '  <small>{{ item.date }}</small>' +
+                '</div>'
+    });
+
+    Vue.component('news-foot', {
+      props: ['url'],
+      template: '<small class="d-block text-right mt-3">' +
+                '  <a :href="url">更多</a>' +
+                '</small>'
+    });
+
+    Vue.component('news-box', {
+      props: ['icon', 'title'],
+      template: '<div>' +
+                '  <div class="news-header">' + 
+                '    <span class="section-icon">{{ icon }}</span>' +
+                '    <h5 class="section-header">{{ title }}</h5>' + 
+                '  </div>' +
+                '  <slot></slot>' +
                 '</div>'
     });
   }

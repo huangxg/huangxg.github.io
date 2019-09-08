@@ -49,7 +49,7 @@
         data: () => {
           var news = bao.util.sortByProp(bao.life.news, 'date', true);
           news.forEach(e => {
-            e.link = `../${e.link}`;
+            e.url = `../${e.url}`;
           });
           return { news: news };
         }

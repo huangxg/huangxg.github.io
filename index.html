@@ -38,47 +38,29 @@
     </div>
 
     <div id="book-news" class="news-box">
-      <div class="news-header">
-        <span class="section-icon">📖</span>
-        <h5 class="section-header">书山有路</h5>
-      </div>
-
-      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
-
-      <small class="d-block text-right mt-3">
-        <a href="books/books.html">更多</a>
-      </small>
+      <news-box icon="📖" title="书山有路">
+        <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+        <news-foot url="books/books.html"></news-foot>
+      </news-box>
     </div>
 
     <div id="go-news" class="news-box">
-      <div class="news-header">
-        <span class="section-icon">⚪</span>
-        <h5 class="section-header">围棋天地</h5>
-      </div>
-  
-      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+      <news-box icon="⚪" title="围棋方圆">
+        <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+      </news-box>
     </div>
-  
-    <div id="tech-news" class="news-box">
-      <div class="news-header">
-        <span class="section-icon">💻</span>
-        <h5 class="section-header">电脑技术</h5>
-      </div>
 
-      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+    <div id="tech-news" class="news-box">
+      <news-box icon="💻" title="电脑技术">
+        <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+      </news-box>
     </div>
 
     <div id="life-news" class="news-box">
-      <div class="news-header">
-        <span class="section-icon">🌎</span>
-        <h5 class="section-header">国计民生</h5>
-      </div>
-
-      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
-
-      <small class="d-block text-right mt-3">
-        <a href="life/life.html">更多</a>
-      </small>
+      <news-box icon="🌎" title="国计民生">
+        <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+        <news-foot url="life/life.html"></news-foot>
+      </news-box>
     </div>
 
   </div>
@@ -89,7 +71,7 @@
 
       bao.util.initVue();
 
-      var bookNews = new Vue({
+      new Vue({
         el: '#book-news',
         data: () => {
           var news = [],
@@ -101,7 +83,7 @@
             var book = {};
             book.title = e[colMap.get('书名')],
             book.date = e[colMap.get('阅毕')],
-            book.link = `books/${e[colMap.get('链接')]}.html`;
+            book.url = `books/${e[colMap.get('链接')]}.html`;
             news.push(book);
           });
 
@@ -119,12 +101,14 @@
         data: { news: bao.tech.news }
       });
 
-      var lifeNews = new Vue({
+      new Vue({ 
         el: '#life-news',
         data: () => { 
           var news = bao.util.sortByProp(bao.life.news, 'date', true);
           news = news.slice(0, Math.min(3, news.length));
-          return { "news" : news };
+          return { 
+            news : news,
+          };
         }
       });
     });

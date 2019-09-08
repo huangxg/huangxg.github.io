@@ -219,14 +219,7 @@
           [ 'Ruane',   '1970--1984', '17.2%', '10.0%' ]
         ]
       };
-
-      var table = $('#grahams-returns-table').DataTable({
-        columns    : grahamReturns.cols,
-        columnDefs : bao.util.getColDefs(grahamReturns.cols),
-        data       : grahamReturns.data,
-        paging     : false,
-        searching  : false,
-      });
+      bao.util.datatable('grahams-returns-table', grahamReturns, {}, false);
 
     });
   </script>
