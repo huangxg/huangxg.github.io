@@ -130,6 +130,7 @@ bao.util = (() => {
     if (longTable) {
       tableOpts.order = [[ 1, 'asc' ]];
     } else {
+      tableOpts.info = false;
       tableOpts.paging = false;
       tableOpts.searching = false;
     }

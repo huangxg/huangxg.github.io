@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="ranking.js"></script>
+
+  <title>1988--2015 国际围棋大赛排行榜</title>
+</head>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="title">
+      <h1>1988--2015 国际围棋大赛排行榜</h1>
+      <div class="author">阿黄</div>
+    </div>
+
+    <p>本排行榜计算了1988-2015年间的97届国际围棋大赛成绩，包括前24届富士通杯、前7届应氏杯、第3-9届（前两届是韩国国内比赛）东洋证券杯、前19届三星杯、前19届LG杯、前10届春兰杯、前4届丰田杯、前4届BC信用卡杯、前两届百灵杯、第1届梦百合杯。中环杯和亚洲杯快棋赛不被计入，因为前者没有中国大陆棋手参赛，后者规模太小。</p>
+
+    <p>冠军计8.07分，亚军4.03分，四强2.01分，八强1分，16强及以下不计分。引入小数是为了让一个冠军大于两个亚军，一个亚军大于两个四强，一个四强大于两个八强。</p>
+    
+    <p>韩国四大天王技高一筹，积分遥遥领先。</p>
+
+    <div class="datatable-wrapper" style="width: 600px">
+      <table id="player-table" class="compact display"></table>
+    </div>
+
+    <p>这129位棋手的国籍统计如下，其中周俊勋和陈诗渊计入中国；三国之外的只有阿根廷的建筑师阿基鲁尔业余6段和美国的迈克·雷蒙九段，其实后者也是日本棋院培养出来的。可以看出，中国的厚度领先于日韩，但是韩国有高度优势。按目前的趋势，中国棋手还需要五年才能追上韩国的积分。</p>
+
+    <div class="datatable-wrapper" style="width: 600px">
+      <table id="country-table" class="compact display"></table>
+    </div>
+
+  </div>
+
+  <script>
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+
+      bao.util.datatable('player-table', bao.go.playerRanking, { order : [[ 6, 'desc' ]] }, true);
+      bao.util.datatable('country-table', bao.go.countryRanking, { order: [[ 6, 'desc' ]] }, false);
+    });
+  </script>
+
+</body>
+</html>

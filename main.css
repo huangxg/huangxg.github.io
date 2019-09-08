@@ -61,8 +61,8 @@ blockquote footer::before {
 }
 
 .title {
-  margin: 24px auto;
-  padding: 16px;
+  margin: 3rem auto;
+  padding: 3rem;
   text-align: center;
 }
 
