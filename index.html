@@ -93,7 +93,11 @@
 
       var goNews = new Vue({
         el: '#go-news',
-        data: { news: bao.go.news }
+        data: () => { 
+          var news = bao.util.sortByProp(bao.go.news, 'date', true);
+          news = news.slice(0, Math.min(3, news.length));
+          return { news: news };
+        }
       });
 
       var techNews = new Vue({
@@ -106,9 +110,7 @@
         data: () => { 
           var news = bao.util.sortByProp(bao.life.news, 'date', true);
           news = news.slice(0, Math.min(3, news.length));
-          return { 
-            news : news,
-          };
+          return { news: news };
         }
       });
     });

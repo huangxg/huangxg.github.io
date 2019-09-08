@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="../nav.js"></script>
+  <script src="../util.js"></script>
+  <script src="go.js"></script>
+  <script src="top8_samsung.js"></script>
+
+  <title>历届三星杯八强</title>
+</head>
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="title">
+      <h1>历届三星杯八强</h1>
+      <div class="author">阿黄</div>
+    </div>
+
+    <p>向三星火灾海上保险公司致以崇高的敬意。感谢Go4Go.net。</p>
+
+    <div class="datatable-wrapper" style="width: 800px">
+      <table id="top8-table" class="compact display"></table>
+    </div>
+
+  </div>
+
+  <script>
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+
+      bao.util.datatable('top8-table', bao.go.samsungTop8, { ordering: false }, false);
+    });
+  </script>
+
+</body>
+</html>
