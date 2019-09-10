@@ -74,7 +74,8 @@ blockquote footer::before {
 }
 
 .news-box {
-  margin: 1rem 0;
+  max-width: 800px;
+  margin: 1rem auto;
   padding: 1rem;
   background-color: white;
   border: 1px solid #dee2e6;

@@ -47,6 +47,7 @@
     <div id="go-news" class="news-box">
       <news-box icon="⚪" title="围棋方圆">
         <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+        <news-foot url="go/go.html"></news-foot>
       </news-box>
     </div>
 
@@ -94,7 +95,8 @@
       var goNews = new Vue({
         el: '#go-news',
         data: () => { 
-          var news = bao.util.sortByProp(bao.go.news, 'date', true);
+          //var news = bao.util.sortByProp(bao.go.news, 'date', true);
+          var news = bao.go.news;
           news = news.slice(0, Math.min(3, news.length));
           return { news: news };
         }

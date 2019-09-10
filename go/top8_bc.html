@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,6 +7,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <link rel="stylesheet" href="../main.css">
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -16,24 +16,27 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
     integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
   <script src="../nav.js"></script>
   <script src="../util.js"></script>
   <script src="go.js"></script>
+  <script src="top8_bc.js"></script>
 
-  <title>Go</title>
+  <title>历届 BC 信用卡杯八强</title>
 </head>
-
 <body>
   <header class="navbar navbar-expand-md navbar-light bg-light"></header>
 
   <div class="container">
     <div class="title">
-      <h1>围棋方圆</h1>
+      <h1>历届 BC 信用卡杯八强</h1>
+      <div class="author">阿黄</div>
     </div>
 
-    <div id="go-news" class="news-box">
-      <news-item v-for="item in news" v-bind:item="item" v-bind:key="item.title"></news-item>
+    <p>向 BC 信用卡公司致以崇高的敬意。</p>
+
+    <div class="datatable-wrapper" style="width: 800px">
+      <table id="top8-table" class="compact display"></table>
     </div>
 
   </div>
@@ -42,19 +45,9 @@
     $(() => {
       $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
 
-      bao.util.initVue();
-      var goNews = new Vue({
-        el: '#go-news',
-        data: () => {
-          var news = bao.go.news.slice();
-          //bao.util.sortByProp(news, 'date', true);
-          news.forEach(e => {
-            e.url = `../${e.url}`;
-          });
-          return { news: news };
-        }
-      });
+      bao.util.datatable('top8-table', bao.go.bcTop8, { ordering: false }, false);
     });
   </script>
+
 </body>
 </html>
