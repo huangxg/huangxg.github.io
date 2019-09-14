@@ -46,7 +46,16 @@
       bao.util.initVue();
       var techNews = new Vue({
         el: '#tech-news',
-        data: { news: bao.tech.news }
+        data: () => { 
+          var news = bao.tech.news.slice();
+          bao.util.sortByProp(news, 'date', true);
+          news.forEach(e => {
+            if (!e.url.includes('http')) {
+              e.url = `../${e.url}`;
+            }
+          });
+          return { news: news };
+        }
       });
     });
   </script>

@@ -149,6 +149,17 @@ bao.util = (() => {
   }
 
   function initVue() {
+    Vue.component('news-box', {
+      props: ['icon', 'title'],
+      template: '<div>' +
+                '  <div class="news-header">' + 
+                '    <span class="section-icon">{{ icon }}</span>' +
+                '    <h5 class="section-header">{{ title }}</h5>' + 
+                '  </div>' +
+                '  <slot></slot>' +
+                '</div>'
+    });
+
     Vue.component('news-item', {
       props: ['item'],
       template: '<div class="news-item">' +
@@ -162,17 +173,6 @@ bao.util = (() => {
       template: '<small class="d-block text-right mt-3">' +
                 '  <a :href="url">更多</a>' +
                 '</small>'
-    });
-
-    Vue.component('news-box', {
-      props: ['icon', 'title'],
-      template: '<div>' +
-                '  <div class="news-header">' + 
-                '    <span class="section-icon">{{ icon }}</span>' +
-                '    <h5 class="section-header">{{ title }}</h5>' + 
-                '  </div>' +
-                '  <slot></slot>' +
-                '</div>'
     });
   }
 

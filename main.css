@@ -4,28 +4,47 @@ body {
 }
 
 h2 {
-  padding: 20px 0;
+  padding: 1.25rem 0;
+}
+
+h2.part {
+  counter-increment: part;
 }
 
 h2.part::before {
-  counter-increment: part;
   content: "第" counter(part) "部分 ";
 }
 
 h3 {
-  padding: 16px 0;
+  padding: 1rem 0;
+}
+
+h3.chapter {
+  counter-increment: chapter;
+  counter-reset: section;
+}
+
+h3.chapter::before:lang(zh) {
+  content: "第" counter(chapter) "章 "
+}
+h3.chapter::before {
+  content: "Chapter " counter(chapter) "  "
+}
+
+h4.section {
+  counter-increment: section;
+}
+
+h4.section::before {
+  content: counter(chapter) "." counter(section) " ";
 }
 
 p {
   text-indent: 2em;
 }
 
-a {
+a, a:hover {
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 a.footnote:before {
