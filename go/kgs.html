@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../main.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" 
+    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" 
+    crossorigin="anonymous"></script>
+  <script src="../nav.js"></script>
+
+  <title>KGS User Guide</title>
+</head>
+
+<body>
+  <header class="navbar navbar-expand-md navbar-light bg-light"></header>
+
+  <div class="container">
+    <div class="title">
+      <h1>简明 KGS 指南</h1>
+    </div>
+
+    <h2>下载安装</h2>
+    <ol>
+      <li>很多人电脑上已经有 Java，没有的到 <a href="https://www.java.com/en/">甲骨文网站下载</a> Java, 点 Java Download 会自动跳转到自己电脑操作系统相应的下载页面。点 Agree and Start Free Download。</li>
+      <li>到 <a href="https://www.gokgs.com/">KGS 网站</a> 下载软件，根据电脑操作系统选 For Windows 或 For Mac 的下载链接。那个Raw JAR File 可能是给 Linux/Unix 的。</li>
+      <li>安装软件时需要管理员权限。</li>
+      <li>如果是苹果电脑，第一次运行软件时可能打不开，需要到 System Preferences -> General 那里改一下设置。</li>
+    </ol>
+
+    <h2>注册设置</h2>
+    <ol>
+      <li>运行 KGS, 在启动窗口点 Play on KGS 弹出登录窗口。</li>
+      <li>填写用户名和密码，新用户密码先随便填。点 Guest 进入主界面。</li>
+      <li>点 User -> Register 菜单，弹出注册窗口。</li>
+      <li>填姓名和电邮，姓名随便，电邮须真实。选上 Hide address from other users，保护自己隐私。</li>
+      <li>点 OK，KGS 会向你的电邮发个确认信，里面有临时密码。</li>
+      <li>在 KGS 主界面点 File -> Log Out 退出，回到启动窗口。</li>
+      <li>点 Play on KGS, 填用户名和密码，点 OK 进入主界面。</li>
+      <li>如果想改密码，点 User -> Edit Personal Information。</li>
+      <li>软件设置在 File -> Set Preferences，比如可以选记住密码。</li>
+    </ol>
+
+    <h2>棋手级别</h2>
+    <ul>
+      <li>新用户还没下棋，没级别。</li>
+      <li>级位棋手中从低到高，30k -- 1k，差一级棋力一般差一子。</li>
+      <li>段位棋手中从低到高，1d -- 9d。9d 大概相当于中国的业余6段。</li>
+      <li>职业棋手中从低到高，1p -- 9p。他们都是实名的，在 KGS 下棋不会导致段位升降。</li>
+    </ul>
+
+    <h2>房间</h2>
+    <ol>
+      <li>点 Rooms -> Room List 打开房间列表。</li>
+      <li>人最多的房间在 Main -> English Game Room。</li>
+      <li>机器人在 Social -> Computer Go，新用户找机器人练级比较合适。</li>
+      <li>自己新建房间在 New Rooms。</li>
+      <li>进入某房间后，房间名会出现在菜单栏下面的标签栏。中间是对局列表，上面粗体的是新开对局，下面是进行中对局。窗口最右边是该房间棋手列表，鼠标右击可以选按级别或名字排序。</li>
+    </ol>
+
+
+
+    <h2>寻找对局</h2>
+    <ol>
+      <li>Active Games 标签下有所有进行中对局。Open Games 下有所有新开对局，正在等待对手的。也可以按房间找进行中对局看棋，或找新开对局下棋。</li>
+      <li>对局类别有 Ranked (级别)、Free（自由）、Teaching（教学）等，Ranked 才会算分。</li>
+      <li>新手可以在 Computer Go 房间找机器人。</li>
+      <ul>
+        <li>29k IdiotBot</li>
+        <li>24k BeginBot</li>
+        <li>21k WeakBot50k</li>
+        <li>15k LibertyBot</li>
+        <li>3k ayabot001</li>
+      </ul>
+      <li>找到合适的对局，点开后可以改某些设置：</li>
+      <ul>
+        <li>Handicap: 让子，一般系统会根据双方级别自动设。</li>
+        <li>Komi: 贴目，中国规则7.5目，日本规则6.5，让子棋一般半目。</li>
+        <li>Main Time: 每方保留时间，一般 10--30 分钟，再短不太够用，再长搭不起时间。</li>
+        <li>Byo-Yomi Time: 读秒时间，一般30秒，再短反应不过来。</li>
+        <li>Byo-Yomi Periods: 读秒次数，一般五次。比如设置五次30秒，自己保留时间用完开始读秒，必须30秒走一步。超过还没走就扣除一次，扣五次就超时判负了。</li>
+      </ul>
+    </ol>
+
+    <h2>对局过程</h2>
+    <ol>
+      <li>设置完毕点 OK，对方如果接受就进入对局。有时机器人比较抢手，可能别人先占到，你进去只能观战。</li>
+      <li>对局开始前跟对手打个招呼，Hi 就行。</li>
+      <li>对局室按钮</li>
+      <ul>
+        <li>Undo: 悔棋。一般不要悔棋，落子无悔。除非真点错鼠标了。对方如果同意你才能悔。</li>
+        <li>Pass: 放弃一手，如果自己认为棋局已经结束，点 Pass；对手如果也认为结束，也点 Pass。双方连着两手 Pass 进入数子阶段。</li>
+        <li>Resign: 认输，形势如果相差太远，或者有急事要离开，就认了吧。</li>
+        <li>Close: 关闭窗口离开对局。一般下完了才能关，否则可能被认为是逃跑了。</li>
+        <li>如果不小心或因为网络掉线离开了对局，可以在主界面右上角点 Resume 找到那盘棋，对方如果在线而且同意，棋局可以继续。</li>
+      </ul>
+      <li>数子时机器人一般会自动标记死子，否则棋手要手动标记死子。相连的一块空里点一个死子就行，其它的会自动被标记上。不小心标错的话可以 Undo，再 Pass，重新来。</li>
+      <li>每块死子都标记后，点 Done。双方都点 Done 后出系统显示胜负结果。</li>
+      <li>对局结束跟对手道谢。</li>
+    </ol>
+  </div>
+
+  <script>
+    $(() => {
+      $('header.navbar').append(bao.nav.getNavbar('围棋', 1));
+    });
+  </script>
+</body>
+</html>
