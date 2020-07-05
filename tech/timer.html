@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="timer.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
+    crossorigin="anonymous"></script>
+  <script src="timer.js"></script>
+
+  <title>Timer</title>
+</head>
+<body>
+  <div class="timer-wrap">
+    <span id="light1" class="circle timer-light green"></span>
+    <input type="text" name="timer1" id="timer1" value="4:00">
+  </div>
+  <div class="timer-wrap">
+    <span id="light2" class="circle timer-light orange"></span>
+    <input type="text" name="timer2" id="timer2" value="5:00">
+  </div>
+  <div class="timer-wrap">
+    <span id="light3" class="circle timer-light red"></span>
+    <input type="text" name="timer3" id="timer3" value="6:00">
+  </div>
+  <div class="timer-wrap">
+    <input type="text" name="timer" id="timer" value="0:00" disabled="disabled">
+  </div>
+  <div class="timer-wrap">
+    <button id="start-btn">Start</button>
+    <button id="stop-btn">Stop</button>
+  </div>
+
+  <script>
+    $(() => {
+      let light1 = $('#light1'),
+          light2 = $('#light2'),
+          light3 = $('#light3'),
+          timer1 = $('#timer1'),
+          timer2 = $('#timer2'),
+          timer3 = $('#timer3'),
+          timer = $('#timer'),
+          startBtn = $('#start-btn'),
+          stopBtn = $('#stop-btn'),
+          timeout1, timeout2, timeout3, timerInterval;
+
+      startBtn.click(() => {
+        light1.removeClass('active');
+        light2.removeClass('active');
+        light3.removeClass('active');
+
+        let t1 = bao.timer.getTime(timer1),
+            t2 = bao.timer.getTime(timer2),
+            t3 = bao.timer.getTime(timer3);
+        
+        console.log(`${t1}, ${t2}, ${t3}`);
+        // bao.timer.countDown(timer1, t1, () => {
+        //   light1.addClass('active');
+        // });
+
+        timeout1 = bao.timer.countUp(t1, () => {
+          light1.addClass('active');
+        });
+        timeout2 = bao.timer.countUp(t2, () => {
+          light1.removeClass('active');
+          light2.addClass('active');
+        });
+        timeout3 = bao.timer.countUp(t3, () => {
+          light2.removeClass('active');
+          light3.addClass('active');
+        });
+
+        timerInterval = bao.timer.startTimer(timer, 0);
+      });
+
+      stopBtn.click(() => {
+        clearTimeout(timeout1);
+        clearTimeout(timeout2);
+        clearTimeout(timeout3);
+        clearInterval(timerInterval);
+      });
+    });
+  </script>
+</body>
+</html>

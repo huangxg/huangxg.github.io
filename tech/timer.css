@@ -1,0 +1,54 @@
+body {
+  margin: 16px auto;
+}
+
+.timer-wrap {
+  text-align: center;
+  padding: 16px;
+}
+
+.timer-wrap input, .timer-wrap button {
+  width: 100px;
+  margin-left: 16px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.circle {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 500%;
+}
+
+.timer-light {
+  width: 128px;
+  height: 128px;
+}
+
+.red {
+  border: solid red 2px;
+}
+
+.red.active {
+  background-color: red;
+}
+
+.green {
+  border: solid green 2px;
+}
+
+.green.active {
+  background-color: green;
+}
+
+.orange {
+  border: solid orange 2px;
+}
+
+.orange.active {
+  background-color: orange;
+}
+/*# sourceMappingURL=timer.css.map */
