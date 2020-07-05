@@ -10,6 +10,7 @@ bao.books = (() => {
         "oreilly"  : "O'Reilly",
         "pearson"  : "Pearson",
         "prentice" : "Prentice Hall",
+        "random"   : "Random House",
         "simon"    : "Simon & Schuster",
         "wiley"    : "Wiley",
         "zhonghua" : "中华书局",
@@ -61,6 +62,7 @@ bao.books = (() => {
     ["杂类", "William Strunk Jr., E.B. White", "The Elements of Style", publishers.pearson, 2000, 4, 
       "978-0205309023", 128, 8, "2019-02-07", "2019-04-07", "elements_style/eos"],
     // Biz
+    ["商业", "Adam Smith", "The Wealth of Nations", publishers.random, 2000, 1, "978-0679783367", 1184, 7, "2018-05-21", "2019-11-21", "wealth_nations/won"],
     ["商业", "Burton G. Malkiel", "The Elements of Investing", publishers.wiley, 2013, 1, 
       "978-1118484876", 182, 7, "2014-12-15", "2015-01-11", ""],
     ["商业", "Burton G. Malkiel", "A Random Walk Down Wall Street", "Norton", 2015, 11, 
