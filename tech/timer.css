@@ -4,14 +4,14 @@ body {
 
 .timer-wrap {
   text-align: center;
-  padding: 16px;
+  padding: 8px;
 }
 
 .timer-wrap input, .timer-wrap button {
   width: 100px;
   margin-left: 16px;
   text-align: center;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .circle {
