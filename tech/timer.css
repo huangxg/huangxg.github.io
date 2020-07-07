@@ -2,6 +2,19 @@ body {
   margin: 16px auto;
 }
 
+div.center {
+  text-align: center;
+}
+
+div.inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div.speech-types {
+  text-align: left;
+}
+
 .timer-wrap {
   text-align: center;
   padding: 8px;

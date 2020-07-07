@@ -14,18 +14,33 @@
   <title>Timer</title>
 </head>
 <body>
-  <div class="timer-wrap">
-    <span id="light1" class="circle timer-light green"></span>
-    <input type="text" name="timer1" id="timer1" value="4:00">
+  <div class="center">
+    <div class="inline">
+      <div class="timer-wrap">
+        <span id="light1" class="circle timer-light green"></span>
+        <input type="text" name="timer1" id="timer1" value="4:00">
+      </div>
+      <div class="timer-wrap">
+        <span id="light2" class="circle timer-light orange"></span>
+        <input type="text" name="timer2" id="timer2" value="5:00">
+      </div>
+      <div class="timer-wrap">
+        <span id="light3" class="circle timer-light red"></span>
+        <input type="text" name="timer3" id="timer3" value="6:00">
+      </div>
+    </div>
+  
+    <div class="inline speech-types">
+      <input type="radio" name="speech-type" id="speech" value="speech" checked="checked">
+      <label for="speech">Speech</label><br>
+      <input type="radio" name="speech-type" id="evaluation" value="evaluation">
+      <label for="evaluation">Evaluation</label><br>
+      <input type="radio" name="speech-type" id="table-topic" value="table-topic">
+      <label for="table-topic">Table topic</label><br>
+    </div>
+  
   </div>
-  <div class="timer-wrap">
-    <span id="light2" class="circle timer-light orange"></span>
-    <input type="text" name="timer2" id="timer2" value="5:00">
-  </div>
-  <div class="timer-wrap">
-    <span id="light3" class="circle timer-light red"></span>
-    <input type="text" name="timer3" id="timer3" value="6:00">
-  </div>
+
   <div class="timer-wrap">
     <input type="text" name="timer" id="timer" value="0:00" disabled="disabled">
   </div>
@@ -36,16 +51,33 @@
 
   <script>
     $(() => {
-      let light1 = $('#light1'),
+      let speech_times = [300, 360, 420],
+          evaluation_times = [120, 150, 180],
+          table_topic_times = [90, 120, 150],
+          times = {
+            "speech": [300, 360, 420],
+            "evaluation": [120, 150, 180],
+            "table-topic": [90, 120, 150]
+          },
+          light1 = $('#light1'),
           light2 = $('#light2'),
           light3 = $('#light3'),
           timer1 = $('#timer1'),
           timer2 = $('#timer2'),
           timer3 = $('#timer3'),
+          speechBtn = $('#speech'),
+          evaluationBtn = $('#evaluation'),
+          tableTopicBtn = $('#table-topic'),
           timer = $('#timer'),
           startBtn = $('#start-btn'),
           stopBtn = $('#stop-btn'),
           timeout1, timeout2, timeout3, timerInterval;
+
+      $('input:radio[name=speech-type]').click((e) => {
+        bao.timer.setTime(timer1, times[e.target.id][0]);
+        bao.timer.setTime(timer2, times[e.target.id][1]);
+        bao.timer.setTime(timer3, times[e.target.id][2]);
+      });
 
       startBtn.click(() => {
         light1.removeClass('active');
