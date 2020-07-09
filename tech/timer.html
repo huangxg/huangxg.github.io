@@ -51,13 +51,10 @@
 
   <script>
     $(() => {
-      let speech_times = [300, 360, 420],
-          evaluation_times = [120, 150, 180],
-          table_topic_times = [90, 120, 150],
-          times = {
+      let times = {
             "speech": [300, 360, 420],
             "evaluation": [120, 150, 180],
-            "table-topic": [90, 120, 150]
+            "table-topic": [60, 90, 120]
           },
           light1 = $('#light1'),
           light2 = $('#light2'),
@@ -88,7 +85,6 @@
             t2 = bao.timer.getTime(timer2),
             t3 = bao.timer.getTime(timer3);
         
-        console.log(`${t1}, ${t2}, ${t3}`);
         // bao.timer.countDown(timer1, t1, () => {
         //   light1.addClass('active');
         // });
