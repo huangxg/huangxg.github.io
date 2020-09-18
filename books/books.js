@@ -7,6 +7,7 @@ bao.books = (() => {
         "barnes"   : "Barnes & Noble",
         "harper"   : "HarperCollins",
         "houghton" : "Houghton Mifflin",
+        "nstarch"   : "No Starch",
         "oreilly"  : "O'Reilly",
         "pearson"  : "Pearson",
         "prentice" : "Prentice Hall",
@@ -46,6 +47,7 @@ bao.books = (() => {
       "978-0743477109", 304, 8, "2012-06-15", "2012-07-11", "shakespeare/macbeth/mac"],
     ["文学", "William Shakespeare", "Romeo and Juliet", publishers.simon, 2002, 1, 
       "978-0743477116", 283, 8, "2012-08-15", "2012-11-26", ""],
+    ["文学", "J. R. R. Tolkien", "The Lord of the Rings", publishers.houghton, 2005, 1, "978-0618640157", 1216, 8, "2020-03-01", "2020-09-12", ""],
     ["文学", "孙洙, 陈婉俊", "唐诗三百首", publishers.zhonghua, 2003, 1, 
       "978-7101037791", 377, 9, "2017-06-15", "2017-12-06", "tangshi_300/t300"],
     ["文学", "朱孝臧, 刘乃昌", "宋词三百首", publishers.zhonghua, 2014, 1, 
@@ -61,6 +63,7 @@ bao.books = (() => {
       "978-0062316097", 464, 8, "2018-03-23", "2018-09-23", "sapiens/sapiens"],
     ["杂类", "William Strunk Jr., E.B. White", "The Elements of Style", publishers.pearson, 2000, 4, 
       "978-0205309023", 128, 8, "2019-02-07", "2019-04-07", "elements_style/eos"],
+    ["杂类", "陈慧芳, 黄良玉", "围棋流行定式实战精华版", "书海", 2011, 1, "978-7805508474", 436, 8, "2019-10-12", "2019-11-30", ""],
     // Biz
     ["商业", "Adam Smith", "The Wealth of Nations", publishers.random, 2000, 1, "978-0679783367", 1184, 7, "2018-05-21", "2019-11-21", "wealth_nations/won"],
     ["商业", "Burton G. Malkiel", "The Elements of Investing", publishers.wiley, 2013, 1, 
@@ -82,6 +85,7 @@ bao.books = (() => {
     ["商业", "Mary Buffett, David Clark", "The Warren Buffett Stock Portfolio", "Scribner", 2011, 1, 
       "978-1451606485", 240, 6, "2014-02-15", "2014-03-15", ""],
     // Tech
+    ["科技", "Robert Sedgewick, Kevin Wayne", "Algorithms", publishers.addison, 2011, 4, "978-0321573513", 976, 10, "2018-05-31", "2019-11-27", ""],
     ["科技", "Alfred V. Aho", "Data Structures and Algorithms", publishers.pearson, 1983, 1, 
       "978-0201000238", 448, 6, "2012-08-15", "2012-11-24", ""],
     ["科技", "Frederick P. Brooks Jr.", "The Mythical Man-Month: Essays on Software Engineering", publishers.addison, 1995, 2, 
@@ -110,6 +114,7 @@ bao.books = (() => {
       "978-0321719614", 550, 6, "2012-06-15", "2012-07-18", ""],
     ["科技", "Nicholas C. Zakas", "Understanding ECMAScript 6", "No Starch", 2016, 3, 
       "978-1593277574", 352, 7, "2017-09-06", "2017-11-06", ""],
+    ["科技", "Marijn Haverbeke", "Eloquent JavaScript", publishers.nstarch, 2018, 3, "978-1593279509", 472, 7, "2019-12-01", "2020-01-15", ""], 
     ["科技", "Debra Cameron", "Learning GNU Emacs", publishers.oreilly, 2004, 3, 
       "978-0596006488", 536, 6, "2012-07-15", "2012-08-17", ""],
   ];
