@@ -47,7 +47,7 @@ bao.books = (() => {
       "978-0743477109", 304, 8, "2012-06-15", "2012-07-11", "shakespeare/macbeth/mac"],
     ["文学", "William Shakespeare", "Romeo and Juliet", publishers.simon, 2002, 1, 
       "978-0743477116", 283, 8, "2012-08-15", "2012-11-26", ""],
-    ["文学", "J. R. R. Tolkien", "The Lord of the Rings", publishers.houghton, 2005, 1, "978-0618640157", 1216, 8, "2020-03-01", "2020-09-12", ""],
+    ["文学", "J. R. R. Tolkien", "The Lord of the Rings", publishers.houghton, 2005, 1, "978-0618640157", 1216, 8, "2020-03-01", "2020-09-12", "tolkien/lor"],
     ["文学", "孙洙, 陈婉俊", "唐诗三百首", publishers.zhonghua, 2003, 1, 
       "978-7101037791", 377, 9, "2017-06-15", "2017-12-06", "tangshi_300/t300"],
     ["文学", "朱孝臧, 刘乃昌", "宋词三百首", publishers.zhonghua, 2014, 1, 
