@@ -48,6 +48,7 @@ bao.timer = (() => {
       }
     }, 1000);
   }
+
   return {
     getTime: getTime,
     setTime: setTime,
