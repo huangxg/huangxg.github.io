@@ -30,6 +30,7 @@
   <script src="top8_tongyang.js"></script>
   <script src="top8_toyota.js"></script>
   <script src="top8_xinao.js"></script>
+  <script src="top8_tianfu.js"></script>
   <script src="ranking.js"></script>
 
   <title>国际围棋大赛排行榜</title>
@@ -43,11 +44,11 @@
       <div class="author">阿黄</div>
     </div>
 
-    <p>本排行榜计算了1988-2019年间的114届国际围棋大型个人赛成绩，包括前24届富士通杯、前八届应氏杯、第3-9届（前两届是韩国国内比赛）东洋证券杯、前24届三星杯、前23届LG杯、前12届春兰杯、前四届丰田杯、前四届 BC 信用卡杯、前四届百灵杯、前三届梦百合杯、首届新奥杯。</p>
+    <p>本排行榜统计了1988-2020年间的117届国际围棋大型个人赛成绩，包括前24届富士通杯、前八届应氏杯、第3-9届（前两届是韩国国内比赛）东洋证券杯、前25届三星杯、前24届LG杯、前12届春兰杯、前四届丰田杯、前四届 BC 信用卡杯、前四届百灵杯、前三届梦百合杯、首届新奥杯、首届天府杯。</p>
 
     <p>冠军计8.07分，亚军4.03分，四强2.01分，八强1分，16强及以下不计分。引入小数是为了让一个冠军大于两个亚军，一个亚军大于两个四强，一个四强大于两个八强。</p>
     
-    <p>韩国四大天王和中国古力技高一筹，积分遥遥领先。</p>
+    <p>韩国四大天王和中国古力技高一筹，积分遥遥领先。柯洁大概还需要两年才能超过古力和刘昌赫。</p>
 
     <div class="datatable-wrapper" style="width: 600px">
       <table id="player-table" class="compact display"></table>
@@ -77,10 +78,11 @@
         bao.go.tongyangTop8.data,
         bao.go.toyotaTop8.data,
         bao.go.xinaoTop8.data,
+        bao.go.tianfuTop8.data,
       ];
       //bao.go.ranking.getPlayers(matchDataArray);
-      var data = bao.go.ranking.getResults(matchDataArray);
-      bao.go.playerRanking.data = bao.go.ranking.calcScores(data);
+      var results = bao.go.ranking.getResults(matchDataArray);
+      bao.go.playerRanking.data = bao.go.ranking.calcScores(results);
       
       bao.util.datatable('player-table', bao.go.playerRanking, { order : [[ 6, 'desc' ]] }, true);
       bao.util.datatable('country-table', bao.go.countryRanking, { ordering: false }, false);
